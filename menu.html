@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Lobster&display=swap');
+
+        body {
+            background-color: #FAF3E0;
+            color: #333;
+            font-family: 'Lora', serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0 1rem;
+        }
+
+        #menu {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            border: 6px double #8B0000;
+            border-radius: 12px;
+            background-color: #fffdf6;
+            background-image: url('your-folk-pattern.png');
+            background-size: contain;
+            background-repeat: repeat;
+        }
+
+        #menu h2,
+        #menu h3 {
+            color: #8B0000;
+            font-family: 'Lobster', cursive;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        #menu h2 {
+            border-bottom: 2px solid #C19A6B;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #menu .type a:hover h3 {
+            color: rgb(235, 49, 16) !important;
+            cursor: pointer;
+        }
+
+
+        @media (max-width: 480px) {
+            #menu {
+                padding: 1rem;
+            }
+
+            #menu h2 {
+                font-size: 1.5rem;
+            }
+
+            #menu h3 {
+                font-size: 1.2rem;
+            }
+
+            .type a {
+                display: block;
+                padding: 0.75rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section id="menu">
+        <h2>МЕНЮ</h2>
+        <section id="bevarages">
+            <div class="type">
+                <a href="drinks.html">
+                    <h3>Напитки</h3>
+                </a>
+            </div>
+        </section>
+
+        <section id="dishes">
+            <div class="type">
+                <a href="dishes.html">
+                    <h3>Ястия</h3>
+                </a>
+            </div>
+        </section>
+    </section>
+    
+
+</body>
+
+
+</html>

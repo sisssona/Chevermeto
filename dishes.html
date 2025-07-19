@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dishes</title>
+    <style>
+ @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Lobster&display=swap');
+
+/* Body styling */
+body {
+    background-color: #FAF3E0;
+    color: #333;
+    font-family: 'Lora', serif;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0 0.5rem;
+}
+
+.type h3 {
+    font-family: 'Lobster', cursive;
+    font-size: 1.8rem;
+    color: #8B0000;
+    text-align: center;
+    margin: 1.5rem 0 0.5rem;
+}
+
+table {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 1.5rem;
+    border-collapse: collapse;
+    border: 3px double #8B0000;
+    background-color: #fffdf6;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Table header cells */
+table th {
+    background-color: #8B0000;
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 0.6rem;
+    border: 1px solid #C19A6B;
+    text-align: center;
+}
+
+/* Table data cells */
+table td {
+    padding: 0.6rem;
+    border: 1px solid #C19A6B;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+/* Alternate row background */
+table tr:nth-child(even) {
+    background-color: #f5f0e6;
+}
+
+/* Empty cell row styling */
+table tr td[colspan],
+table tr td:empty {
+    background-color: #fffdf6;
+    border: none;
+}
+
+/* Price row bold */
+table tr:last-child th {
+    font-size: 1.1rem;
+    color: #8B0000;
+    background-color: #ffe5d0;
+}
+
+/* Menu container */
+#menu {
+    max-width: 800px;
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+    border: 4px double #8B0000;
+    border-radius: 10px;
+    background-color: #fffdf6;
+    background-image: url('your-folk-pattern.png');
+    background-size: contain;
+    background-repeat: repeat;
+}
+
+/* Headings */
+#menu h3 {
+    color: #8B0000;
+    font-family: 'Lobster', cursive;
+    text-align: center;
+    margin-bottom: 0.8rem;
+}
+
+/* Menu item */
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    border-bottom: 1px dotted #C19A6B;
+    margin-bottom: 0.5rem;
+    padding: 0.3rem 0;
+}
+
+/* Item title */
+.menu-item h4 {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #005F1A;
+    margin: 0 1rem 0 0;
+    flex-basis: 100%;
+}
+
+/* Item description */
+.menu-item-description {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 0.2rem;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+/* Item price */
+.menu-item p {
+    color: #8B0000;
+    font-weight: bold;
+    margin: 0;
+    white-space: nowrap;
+    flex-shrink: 0;
+    align-self: flex-start;
+}
+
+/* Responsive behavior */
+@media (max-width: 600px) {
+    .menu-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+      .menu-item p {
+        margin-top: 0.5rem;
+        align-self: flex-start; /* price below description */
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <section id="menu">
+
+        <section id="dishes">
+            <div class="type">
+                <h3>САЛАТИ</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Гръцка 350 г </h4>
+                <div class="menu-item-description">Краве сирене, зехтин, риган, домати, краставици</div>
+                <p>8.60 лв.</p>
+               
+            </div>
+            <div class="menu-item">
+                <h4>Капрезе 300 г</h4>
+                <div class="menu-item-description">Домати с моцарела и босилек</div>
+                <p>11.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Мешана 250 г</h4>
+                <div class="menu-item-description"></div>
+                <p>6.90 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Шопска 300 г</h4>
+                <div class="menu-item-description"></div>
+                <p>8.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Овчарска (с шунка и гъби) 340 г</h4>
+                <div class="menu-item-description"></div>
+                <p>9.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Снежанка 180 г </h4>
+                <div class="menu-item-description"></div>
+                <p>7.00 лв</p>
+            </div>
+            <div class="menu-item">
+                <h4>Печени чушки с копър и чесън 250 г</h4>
+                <div class="menu-item-description"></div>
+                <p>6.70 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Зеле и моркови 200 г</h4>
+                <div class="menu-item-description"></div>
+                <p>5.60 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Салата „Чевермето“ 350 г</h4>
+                <div class="menu-item-description">Снежанка, домат, краставица, катък, лютика</div>
+                <p>11.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Цезар 350 г</h4>
+                <div class="menu-item-description">Айсберг, пилешко филе, домати, дресинг</div>
+                <p>11.00 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3>СТУДЕНИ ПРЕДЯСТИЯ - 50 г</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Сирене</h4>
+                <div class="menu-item-description"></div>
+                <p>2.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Кашкавал</h4>
+                <p>3.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Шпек салам</h4>
+                <p>3.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Пастърма</h4>
+                <p>4.80 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Филе Елена</h4>
+                <p>4.40 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Луканка</h4>
+                <p>4.00 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3>РАЗЯДКИ</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Разядката на Ванчо 300 г</h4>
+                <div class="menu-item-description">тиквички, домат, сирене</div>
+                <p>10.30 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Родопски катък 200 г</h4>
+                 <div class="menu-item-description">майонеза, сирене, кисели краставички, печена чушка</div>
+                <p>8.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Лютика със сирене и яйце 250 г</h4>
+                <p>8.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Тиквички с кисело мляко 300 г</h4>
+                <p>6.90 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3>ТОПЛИ ПРЕДЯСТИЯ</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Кралски скариди 170 г</h4>
+                <p>23.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Сирене пане хапки 220 г</h4>
+                <p>8.20 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Сирене под капак 150 г</h4>
+                <p>7.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Кашкавал пане 220 г</h4>
+                <p>7.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Кашкавал пане хапки 120 г</h4>
+                <p>8.80 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Топено сирене пане 120 г</h4>
+                <p>8.80 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Пилешки сърца в масло 220 г </h4>
+                <p>8.90 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Гъби в масло 150 г </h4>
+                <p>6.60 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Чушка бюрек 1 бр.</h4>
+                <p>6.20 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Език пане/в масло 170 г</h4>
+                <p>15.90 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3>СУПИ</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Шкембе 300 г</h4>
+                <p>4.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Таратор 300 г</h4>
+                <p>3.90 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Супа на деня 300 г</h4>
+                <p></p>
+            </div>
+
+            <div class="type">
+                <h3>САЧОВЕ</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Сач 650 г</h4>
+                <div class="menu-item-description">Пилешки/свински/комбиниран</div>
+                <p>37.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Зеленчуков сач 450 г</h4>
+                <p>17.50 лв.</p>
+            </div>
+
+
+            <div class="type">
+                <h3>НАЦИОНАЛНА КУХНЯ</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Кавърма 400 г</h4>
+                <div class="menu-item-description">Свинска/пилешка</div>
+                <p>10.90 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Кавърма в омлет 400 г</h4>
+                <div class="menu-item-description">Свинска/пилешка</div>
+                <p>12.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Сирене по врачански 350 г</h4>
+                <p>8.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Сирене по тракийски (с шунка) 350 г</h4>
+                <p>9.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Суджук по ловджийски 300 г</h4>
+                <div class="menu-item-description">Суджук на скара с лук, гъби, шунка, чушки, домати</div>
+                <p>15.90 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Агнешка главичка 350 г</h4>
+                <p>14.90 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Качамак със сирене 300 г</h4>
+                <p>7.40 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Миш-маш 300 г</h4>
+                <p>8.90 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Яйца по панагюрски 300 г</h4>
+                <p>7.90 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3>ЯСТИЯ ОТ ПИЛЕШКО МЕСО</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Пилешко филе вретено 400 г</h4>
+                <p>18.20 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Пилешко филе 130 г</h4>
+                <p>10.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Пилешко филе с гъби 300 г</h4>
+                <p>12.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Пилешка пържола бут 130 г</h4>
+                <p>9.90 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Пилешки крилца 300 г</h4>
+                <p>9.80 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Пилешка пържола по цигански 360 г</h4>
+                <p>13.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Пилешки хапки със сусам/корнфлейкс 200 г</h4>
+                <p>9.20 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Пилешки шницел по виенски 150 г</h4>
+                <p>18.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Пилешки шашлик 280 г</h4>
+                <p>14.50 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3>ЯСТИЯ ОТ СВИНСКО МЕСО</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Свинско филе вретено 400 г</h4>
+                <p>18.20 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Пържола с гъби 300 г</h4>
+                <p>12.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Пържола на тиган 120 г</h4>
+                <p>10.20 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Шницел по виенски 150 г</h4>
+                <p>18.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Шницел пане кайма 150 г</h4>
+                <p>8.30 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Пържола 130 г</h4>
+                <p>10.20 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Шишче 90 г</h4>
+                <p>4.10 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Кюфте 80 г</h4>
+                <p>2.80 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Кебапче 80 г</h4>
+                <p>2.80 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Дроб 120 г</h4>
+                <p>8.60 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Ребра 200 г</h4>
+                <p>12.90 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Свински суджук 200 г</h4>
+                <p>9.60 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Татарско кюфте 160 г</h4>
+                <p>8.20 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Свински шашлик 280 г</h4>
+                <p>14.50 лв.</p>
+            </div>
+
+             <div class="type">
+                <h3>СИНИЯ ЧЕВЕРМЕ СВИНСКО</h3>
+            </div>
+
+            <table>
+                <tr>
+                    <td>&nbsp;</td>
+                    <th>Голяма</th>
+                    <th>Малка</th>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>/ЗА 6 ЧОВЕКА/</td>
+                    <td>/ЗА 3 ЧОВЕКА/</td>
+                </tr>
+                <tr>
+                    <td>Свински шашлик</td>
+                    <td>2 бр. х 270 г</td>
+                    <td>2 бр. х 135 г</td>
+                </tr>
+                <tr>
+                    <td>Свинска пържола</td>
+                    <td>120 г</td>
+                    <td>60 г</td>
+                </tr>
+                <tr>
+                    <td>Свински дроб</td>
+                    <td>120 г</td>
+                    <td>60 г</td>
+                </tr>
+                <tr>
+                    <td>Свински ребра</td>
+                    <td>350 г</td>
+                    <td>175 г</td>
+                </tr>
+                <tr>
+                    <td>Свинска наденица</td>
+                    <td>230 г</td>
+                    <td>115 г</td>
+                </tr>
+                <tr>
+                    <td>Свинско каре</td>
+                    <td>120 г</td>
+                    <td>60 г</td>
+                </tr>
+                <tr>
+                    <td>Свинско шишче</td>
+                    <td>2 бр. х 90 г</td>
+                    <td>2 бр. х 45 г</td>
+                </tr>
+                <tr>
+                    <td>Пържени картофи</td>
+                    <td>120 г</td>
+                    <td>60 г</td>
+                </tr>
+                <tr>
+                    <td>Варени картофи</td>
+                    <td>200 г</td>
+                    <td>100 г</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <th>Цена: 98.00 лв.</th>
+                    <th>Цена: 49.50 лв.</th>
+                </tr>
+            </table>
+
+            <div class="type">
+                <h3>СИНИЯ ЧЕВЕРМЕ ПИЛЕШКО</h3>
+            </div>
+
+            <table>
+                <tr>
+                    <td>&nbsp;</td>
+                    <th>Голяма</th>
+                    <th>Малка</th>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>/ЗА 6 ЧОВЕКА/</td>
+                    <td>/ЗА 3 ЧОВЕКА/</td>
+                </tr>
+                <tr>
+                    <td>Пилешки шашлик</td>
+                    <td>2 бр. х 270 г</td>
+                    <td>2 бр. х 135 г</td>
+                </tr>
+                <tr>
+                    <td>Пилешка пържола</td>
+                    <td>120 г</td>
+                    <td>60 г</td>
+                </tr>
+                <tr>
+                    <td>Пилешко филе</td>
+                    <td>130 г</td>
+                    <td>65 г</td>
+                </tr>
+                <tr>
+                    <td>Пилешки дроб</td>
+                    <td>150 г</td>
+                    <td>75 г</td>
+                </tr>
+                <tr>
+                    <td>Пилешки крилца</td>
+                    <td>300 г</td>
+                    <td>150 г</td>
+                </tr>
+                <tr>
+                    <td>Пилешко шишче</td>
+                    <td>2 бр. х 90 г</td>
+                    <td>2 бр. х 45 г</td>
+                </tr>
+                <tr>
+                    <td>Пилешка наденица</td>
+                    <td>230 г</td>
+                    <td>115 г</td>
+                </tr>
+                <tr>
+                    <td>Пържени картофи</td>
+                    <td>120 г</td>
+                    <td>60 г</td>
+                </tr>
+                <tr>
+                    <td>Варени картофи</td>
+                    <td>200 г</td>
+                    <td>100 г</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <th>Цена: 98.00 лв.</th>
+                    <th>Цена: 49.50 лв.</th>
+                </tr>
+            </table>
+
+            <div class="type">
+                <h3>СИНИЯ ЧЕВЕРМЕ КОМБИНИРАНО</h3>
+            </div>
+
+            <table>
+                <tr>
+                    <td>&nbsp;</td>
+                    <th>Голяма</th>
+                    <th>Малка</th>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>/ЗА 6 ЧОВЕКА/</td>
+                    <td>/ЗА 3 ЧОВЕКА/</td>
+                </tr>
+                <tr>
+                    <td>Пилешки шашлик</td>
+                    <td>2 бр. х 270 г</td>
+                    <td>2 бр. х 135 г</td>
+                </tr>
+                <tr>
+                    <td>Свински шашлик</td>
+                    <td>2 бр. х 270 г</td>
+                    <td>2 бр. х 135 г</td>
+                </tr>
+                <tr>
+                    <td>Пилешка пържола</td>
+                    <td>130 г</td>
+                    <td>65 г</td>
+                </tr>
+                <tr>
+                    <td>Свинска пържола</td>
+                    <td>120 г</td>
+                    <td>60 г</td>
+                </tr>
+                <tr>
+                    <td>Свинска наденица</td>
+                    <td>120 г</td>
+                    <td>60 г</td>
+                </tr>
+                <tr>
+                    <td>Пилешка наденица</td>
+                    <td>230 г</td>
+                    <td>115 г</td>
+                </tr>
+                <tr>
+                    <td>Свински ребра</td>
+                    <td>350 г</td>
+                    <td>175 г</td>
+                </tr>
+                <tr>
+                    <td>Пилешки крилца</td>
+                    <td>300 г</td>
+                    <td>150 г</td>
+                </tr>
+                <tr>
+                    <td>Пържени картофи</td>
+                    <td>120 г</td>
+                    <td>60 г</td>
+                </tr>
+                <tr>
+                    <td>Варени картофи</td>
+                    <td>200 г</td>
+                    <td>100 г</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <th>Цена: 98.00 лв.</th>
+                    <th>Цена: 49.50 лв.</th>
+                </tr>
+            </table>
+
+            <div class="type">
+                <h3>ЯСТИЯ ОТ РИБА</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Скумрия на скара 100 г</h4>
+                <p>4.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Шаран 200 г</h4>
+                <p>12.60 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Филе бяла риба пане 250 г</h4>
+                <p>10.90 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Пъстърва 100 г</h4>
+                <p>6.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Речна риба 300 г</h4>
+                <p></p>
+            </div>
+            <div class="menu-item">
+                <h4>Ципура 100 г</h4>
+                <p>7.80 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3>ГАРНИТУРИ</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Бланширани пържени картофи 150 г</h4>
+                <p>4.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Бланширани пържени картофи със сирене 200г</h4>
+                <p>5.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Прясна 180 г</h4>
+                <div class="menu-item-description">Домати, краставици, зеле</div>
+                <p>4.00 лв</p>
+            </div>
+            <div class="menu-item">
+                <h4>Комбинирана 180 г</h4>
+                <div class="menu-item-description">Картофи, домати, краставици</div>
+                <p>4.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Балкан турист 180 г</h4>
+                <div class="menu-item-description">Зеле, лютеница, боб, печена чушка</div>
+                <p>5.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Картофено пюре 120 г</h4>
+                <p>3.90 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Пресни пържени картофи 150 г</h4>
+                <p>4.80 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Пресни пържени картофи със сирене 200 г</h4>
+                <p></p>
+            </div>
+            <div class="menu-item">
+                <h4>Варени картофи 150 г |(с лук) 120 г</h4>
+                <p></p>
+            </div>
+            <div class="menu-item">
+                <h4>Картофи соте 150 г</h4>
+                <p></p>
+            </div>
+            <div class="menu-item">
+                <h4>Зеленчуци на скара 180 г</h4>
+                <p></p>
+            </div>
+            <div class="menu-item">
+                <h4>Задушени зеленчуци 180 г</h4>
+                <p></p>
+            </div>
+
+            <div class="type">
+                <h3>СОСОСВЕ - 60 г</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Зехтин/балсамико/соев сос/горчица/кетчуп/чеснов сос/лютеница</h4>
+                <p>1.70 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3>ХЛЯБ - 1 бр.</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Филия</h4>
+                <p>0.35 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Печена филия</h4>
+                <p>0.40 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Питка</h4>
+                <p>2.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Пърленка</h4>
+                <p>3.30 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3>ЯДКИ - 50 г</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Индийско кашу</h4>
+                <p>4.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Бадем</h4>
+                <p>4.30 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Шам фъстък</h4>
+                <p>4.30 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3>ДЕСЕРТИ</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Ябълка пане с мед и канела 180 г</h4>
+                <p>6.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Палачинка 1 бр.</h4>
+                <p>3.90 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Мелба 200 г</h4>
+                <p>6.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Сладолед 150 г</h4>
+                <p>3.90 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Десерт на деня …….. г</h4>
+                <p></p>
+            </div>
+
+        </section>
+    </section>
+
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: rgb(190, 179, 164);
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 3px solid black;
+    background-color: #f5f0e6;
+}
+
+header h1 {
+    font-family: 'Neucha', cursive;
+    font-size: 2.5rem;
+    color: #763f21; 
+    text-shadow: 1px 1px #d8d5b0;
+    padding-bottom: 20px;
+}
+
+main {
+    background-color: #097d4c;
+    color: #f1ead1;
+}
+
+main nav  {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-bottom: 3px solid black;
+    background-color: #eee6cb;
+}
+
+main nav a {
+    font-family: 'Lora', serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #097d4c;
+}
+
+main nav a:hover {
+    color: rgb(30, 126, 30);
+    cursor: pointer;
+}
+
+main a {
+    text-decoration: none;
+}
+
+main h2 {
+    font-size: 1.6rem;
+    color: #f8e1cf;
+    font-family: 'Neucha', cursive;
+    position: relative;
+    border-bottom: 3px solid black;
+    padding: 20px 0;
+    background-color: #763f21;
+}
+
+main h2::before {
+    content: "🖼️ ";
+    margin-right: 8px;
+}
+
+.about {
+    font-family: 'Lora', serif;
+    padding: 20px 50px;
+}
+
+h3 {
+    font-size: 1.8rem;
+    padding-bottom: 20px;
+}
+
+h4 {
+    font-size: 1.5rem;
+    padding-bottom: 20px;
+}
+
+.about p {
+    font-size: 1.4rem;
+    line-height: 25px;
+}
+
+footer {
+    padding: 20px;
+    background-color:#f5f0e6;
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    color: rgb(56, 45, 45);
+}
+
+.map-container {
+     width: 400px;
+  height: 300px;
+  margin: 10px auto;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+
+/* ✅ Responsive Adjustments */
+@media (max-width: 600px) {
+    header {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header nav a {
+        font-size: 1.2rem;
+    }
+
+    main h2 {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+    }
+
+    .about {
+        padding: 15px;
+    }
+
+    .about p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    footer {
+        font-size: 0.9rem;
+        padding: 15px;
+    }
+
+      .map-container {
+    width: 100%;    /* full width of parent */
+    height: auto;   /* keep aspect ratio with padding trick */
+    position: relative;
+    padding-bottom: 75%; /* 300 / 400 = 0.75 aspect ratio */
+    height: 0;      /* required for aspect ratio trick */
+  }
+
+  .map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinks</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Lobster&display=swap');
+
+        body {
+            background-color: #FAF3E0;
+            color: #333;
+            font-family: 'Lora', serif;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0 0.5rem;
+        }
+
+        .type h3 {
+            font-family: 'Lobster', cursive;
+            font-size: 1.8rem;
+            color: #8B0000;
+            text-align: center;
+            margin: 1.5rem 0 0.5rem;
+        }
+
+        #menu {
+            max-width: 800px;
+            margin: 1.5rem auto;
+            padding: 1.5rem;
+            border: 4px double #8B0000;
+            border-radius: 10px;
+            background-color: #fffdf6;
+            background-image: url('your-folk-pattern.png');
+            background-size: contain;
+            background-repeat: repeat;
+        }
+
+        /* Headings */
+        #menu h3 {
+            color: #8B0000;
+            font-family: 'Lobster', cursive;
+            text-align: center;
+            margin-bottom: 0.8rem;
+        }
+
+        /* Section titles */
+        #menu h2 {
+            border-bottom: 1px solid #C19A6B;
+            padding-bottom: 0.3rem;
+            margin-top: 1.5rem;
+        }
+
+        /* Menu item */
+        .menu-item {
+            margin-bottom: 0.5rem;
+            padding: 0.3rem 0;
+            border-bottom: 1px dotted #C19A6B;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Item title */
+        .menu-item h4 {
+            font-weight: bold;
+            font-size: 1rem;
+            color: #005F1A;
+            margin: 0;
+        }
+
+        /* Item description */
+        .menu-item-description {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 0.2rem;
+        }
+
+        /* Item price */
+        .menu-item p {
+            float: right;
+            color: #8B0000;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        /* Clear floats */
+        .menu-item::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 0 1rem;
+                font-size: 0.95rem;
+            }
+
+            .type h3 {
+                font-size: 1.5rem;
+            }
+
+            .menu-item h4 {
+                font-size: 1rem;
+            }
+
+            .menu-item p {
+                float: none;
+                display: block;
+                text-align: right;
+                margin-top: 0.2rem;
+            }
+
+            #menu {
+                padding: 1rem;
+                border-width: 2px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <section id="menu">
+
+        <section id="bevarages">
+            <div class="type">
+                <h3>Безалкохолни</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Кока кола/Кока кола Zero 250 мл</h4>
+                <p>3.10 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Фанта портокал/лимон 250 мл</h4>
+                <p>3.10 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Спрайт 250 мл</h4>
+                <p>3.10 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Швепс 250 мл</h4>
+                <p>3.10 лв.</p>
+                <div class="menu-item-description">Tоник/битер лимон/мандарина</div>
+            </div>
+            <div class="menu-item">
+                <h4>Сода 250 мл</h4>
+                <p>2.30 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Минерална вода 500 мл</h4>
+                <p>2.10 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Капи 250 мл</h4>
+                <p>3.40 лв.</p>
+                <div class="menu-item-description">Портокал/червен портокал/ябълка/кайсия/праскова/вишна</div>
+            </div>
+            <div class="menu-item">
+                <h4>Студен чай - Fuze tea 250 мл</h4>
+                <p>3.40 лв.</p>
+                <div class="menu-item-description">Лимон/праскова</div>
+            </div>
+
+        </section>
+
+        <section id="hot drinks">
+            <div class="type">
+                <h3>Топли напитки</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Кафе 60 г</h4>
+                <p></p>
+            </div>
+            <div class="menu-item">
+                <h4>3 в 1 60 г</h4>
+                <p></p>
+            </div>
+            <div class="menu-item">
+                <h4>Чай 60 г</h4>
+                <p></p>
+            </div>
+            <div class="menu-item">
+                <h4>Сметана</h4>
+                <p></p>
+            </div>
+            <div class="menu-item">
+                <h4>Мед</h4>
+                <p></p>
+            </div>
+        </section>
+
+        <section id="alcoholic drinks">
+            <div class="type">
+                <h3>НАЛИВНА БИРА</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Stella Artois 330 мл</h4>
+                <p>3.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Stella Artois 500 мл</h4>
+                <p>5.00 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3>БУТИЛИРАНА БИРА</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Каменица 500 мл</h4>
+                <p>3.80 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Бургаско 500 мл</h4>
+                <p>3.80 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Staropramen 500 мл</h4>
+                <p>4.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Staropramen dark (сезонно) 500 мл</h4>
+                <p>4.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Staropramen 0% (безалкохолна) 500 мл</h4>
+                <p>4.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Stella Artois 500 мл</h4>
+                <p>4.60 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Corona 355 мл</h4>
+                <p>5.50 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3>Ракии</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Карнобатска мускатова 50 мл</h4>
+                <p>3.20 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Поморийска мускатова 50 мл</h4>
+                <p>3.20 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Сливенска перла 50 мл</h4>
+                <p>4.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Сливова 50 мл</h4>
+                <p>3.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Бургаска мускатова 50 мл</h4>
+                <p>3.20 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Бургас 63 50 мл</h4>
+                <p>4.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Бургас 63 барел 50 мл</h4>
+                <p>4.80 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Врачанска теменуга 50 мл</h4>
+                <p>4.10 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Кайсиева 50 мл</h4>
+                <p>3.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Стралджанска мускатова 50 мл</h4>
+                <p>3.60 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Обикновена гроздова 50 мл</h4>
+                <p>2.60 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3>Водка</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Savoy Силвър 50 мл</h4>
+                <p>2.40 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Абсолют 50 мл</h4>
+                <p>4.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Финландия 50 мл</h4>
+                <p>4.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Руски стандарт 50 мл</h4>
+                <p>4.60 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3>Анасонови напитки</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Карнобатска мастика 50 мл</h4>
+                <p></p>
+            </div>
+            <div class="menu-item">
+                <h4>Узо Пломари 50 мл</h4>
+                <p>4.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Пастис Перно 50 мл</h4>
+                <p>4.50 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3>Уиски</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Савой 50 мл</h4>
+                <p>3.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Бушмилс 50 мл</h4>
+                <p>6.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Бейлис 50 мл</h4>
+                <p>6.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>J&B 50 мл</h4>
+                <p>6.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Джеймисън 50 мл</h4>
+                <p>6.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Джони Уокър 50 мл</h4>
+                <p>5.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Джони Уокър 12г. 50 мл</h4>
+                <p>8.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Тюламор Дю 50 мл</h4>
+                <p>6.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Джим Бийм 50 мл</h4>
+                <p>6.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Джак Даниелс 50 мл</h4>
+                <p>7.90 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3>Джин</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Савой 50 мл</h4>
+                <p>2.60 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Бийфитър 50 мл</h4>
+                <p>4.40 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3>Ром</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Савой 50 мл</h4>
+                <p>2.60 лв.</p>
+            </div>
+
+
+            <div class="type">
+                <h3>Вермут - 50 мл</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Вермут български</h4>
+                <p>2.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Мартини</h4>
+                <p>3.00 лв.</p>
+                <div class="menu-item-description">Бианко/сухо</div>
+            </div>
+
+            <div class="type">
+                <h3>Мента - 50 мл</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Карнобат</h4>
+                <p>2.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Мари Бризар</h4>
+                <p>3.10 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3>БЕЛИ ВИНА</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Шато Карнобат 750 мл</h4>
+                <p>18.40 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Сайкъл 750 мл </h4>
+                <p>25.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Сайкъл 375 мл </h4>
+                <p>12.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Старосел 750 мл</h4>
+                <p>33.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Търговище 750 мл</h4>
+                <p>23.00 лв.</p>
+            </div>
+
+            <div class="menu-item">
+                <h4>Чаша вино 200 мл</h4>
+                <p>3.80 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3>ЧЕРВЕНИ ВИНА</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Шато Карнобат 750 мл</h4>
+                <p>18.40 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Сайкъл 750 мл</h4>
+                <p>25.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Сайкъл 375 мл</h4>
+                <p>12.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Старосел 750 мл</h4>
+                <p>33.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Търговище 750 мл</h4>
+                <p>23.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Чаша вино 200 мл</h4>
+                <p>3.80 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3>РОЗЕ</h3>
+            </div>
+            <div class="menu-item">
+                <h4>Сайкъл 750 мл</h4>
+                <p>25.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Катаржина Розе 750 мл</h4>
+                <p>31.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4>Старосел Розе 750 мл</h4>
+                <p>33.00 лв.</p>
+            </div>
+
+        </section>
+    </section>
+
+
+</body>
+
+</html>
