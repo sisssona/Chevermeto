@@ -31,6 +31,37 @@ const translations = {
     caesar: "Цезар 350 г",
     "caesar-desc": "Айсберг, пилешко филе, домати, дресинг",
     lv: "лв.", 
+     "cold-appetizers": "СТУДЕНИ ПРЕДЯСТИЯ - 50 г",
+    spreads: "РАЗЯДКИ",
+    "hot-appetizers": "ТОПЛИ ПРЕДЯСТИЯ",
+
+    // Cold Appetizers
+    sirene: "Сирене",
+    kashkaval: "Кашкавал",
+    shpek: "Шпек салам",
+    pastarma: "Пастърма",
+    fileElena: "Филе Елена",
+    lukanka: "Луканка",
+
+    // Spreads
+    vancho: "Разядката на Ванчо 300 г",
+    "vancho-desc": "тиквички, домат, сирене",
+    katak: "Родопски катък 200 г",
+    "katak-desc": "майонеза, сирене, кисели краставички, печена чушка",
+    lyutika: "Лютика със сирене и яйце 250 г",
+    tikvichki: "Тиквички с кисело мляко 300 г",
+
+    // Hot Appetizers
+    shrimp: "Кралски скариди 170 г",
+    friedCheeseBites: "Сирене пане хапки 220 г",
+    bakedCheese: "Сирене под капак 150 г",
+    kashkavalPane: "Кашкавал пане 220 г",
+    kashkavalBites: "Кашкавал пане хапки 120 г",
+    meltedCheese: "Топено сирене пане 120 г",
+    chickenHearts: "Пилешки сърца в масло 220 г",
+    mushrooms: "Гъби в масло 150 г",
+    pepperBurek: "Чушка бюрек 1 бр.",
+    tongue: "Език пане/в масло 170 г",
   },
   en: {
     title: 'Tavern "Chevermeto"',
@@ -64,5 +95,36 @@ const translations = {
     caesar: "Caesar 350g",
     "caesar-desc": "Iceberg, chicken fillet, tomatoes, dressing",
     lv: "lv.",
+    "cold-appetizers": "COLD APPETIZERS - 50g",
+    spreads: "SPREADS",
+    "hot-appetizers": "HOT APPETIZERS",
+
+    // Cold Appetizers
+    sirene: "White cheese",
+    kashkaval: "Yellow cheese",
+    shpek: "Dry sausage",
+    pastarma: "Pastarma",
+    fileElena: "Fillet Elena",
+    lukanka: "Lukanka",
+
+    // Spreads
+    vancho: "Vancho’s Spread 300g",
+    "vancho-desc": "zucchini, tomato, cheese",
+    katak: "Rodopski Katak 200g",
+    "katak-desc": "mayonnaise, cheese, pickles, roasted pepper",
+    lyutika: "Lyutika with cheese and egg 250g",
+    tikvichki: "Zucchini with yogurt 300g",
+
+    // Hot Appetizers
+    shrimp: "Royal Shrimp 170g",
+    friedCheeseBites: "Fried Cheese Bites 220g",
+    bakedCheese: "Baked Cheese in Lid 150g",
+    kashkavalPane: "Breaded Yellow Cheese 220g",
+    kashkavalBites: "Breaded Yellow Cheese Bites 120g",
+    meltedCheese: "Breaded Melted Cheese 120g",
+    chickenHearts: "Chicken Hearts in Butter 220g",
+    mushrooms: "Mushrooms in Butter 150g",
+    pepperBurek: "Stuffed Pepper Burek 1 pc",
+    tongue: "Tongue (breaded/in butter) 170g",
   },
 };
