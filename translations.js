@@ -1,0 +1,68 @@
+const translations = {
+  bg: {
+    title: 'Механа "Чевермето"',
+    menu: "📜 Меню",
+    gallery: "Галерия",
+    dishes: "Ястия",
+    drinks: "Напитки",
+    salads: "САЛАТИ",
+    "about-title": "Механа „Чевермето“ – Враца",
+    established: "Традиции, вкус и настроение от 1997 година",
+    "history-1":
+      "Основана през 1997 година, механа „Чевермето“ започва като малко и уютно заведение, което с годините се разраства и превръща в добре познато място за срещи, празници и вкусна българска кухня. Постепенно са изграждани нови зали, а градината е променяна и обогатена – днес тя впечатлява с живописен шадраван и обитателите му – истински костенурки, които са любима атракция за нашите гости.",
+    "history-2":
+      "Менюто ни предлага разнообразие от традиционни български ястия, приготвени с внимание към вкуса и качеството. Залите ни съчетават битов стил с уют и комфорт, а през топлите месеци градината осигурява прохлада и спокойствие.",
+    "history-3":
+      "🎧 В петък и събота механа „Чевермето“ се превръща в сцена на весели DJ вечери – с народна музика, танци и хора до късно! Без жива музика, но с много настроение и възможност да се потанцува с приятели и близки.",
+    address:
+      "📍 Адрес: гр. Враца, ул. Васил Кънчов 26\n📞 Резервации и информация: +35992 66 06 94",
+    "greek-salad": "Гръцка 350 г",
+    "greek-desc": "Краве сирене, зехтин, риган, домати, краставици",
+    caprese: "Капрезе 300 г",
+    "caprese-desc": "Домати с моцарела и босилек",
+    mixed: "Мешана 250 г",
+    shopska: "Шопска 300 г",
+    ovcharska: "Овчарска (с шунка и гъби) 340 г",
+    snejanka: "Снежанка 180 г",
+    peppers: "Печени чушки с копър и чесън 250 г",
+    cabbage: "Зеле и моркови 200 г",
+    chevermeto: "Салата „Чевермето“ 350 г",
+    "chevermeto-desc": "Снежанка, домат, краставица, катък, лютика",
+    caesar: "Цезар 350 г",
+    "caesar-desc": "Айсберг, пилешко филе, домати, дресинг",
+    lv: "лв.", 
+  },
+  en: {
+    title: 'Tavern "Chevermeto"',
+    menu: "📜 Menu",
+    gallery: "Gallery",
+    dishes: "Dishes",
+    drinks: "Drinks",
+    salads: "Salads",
+    "about-title": "Tavern “Chevermeto” – Vratsa",
+    established: "Tradition, taste and good vibes since 1997",
+    "history-1":
+      "Founded in 1997, “Chevermeto” began as a small and cozy spot that grew over the years into a popular place for gatherings, celebrations, and delicious Bulgarian cuisine. Gradually, new halls were added, and the garden was transformed and enriched — today it features a picturesque fountain and real turtles, a favorite attraction for our guests.",
+    "history-2":
+      "Our menu offers a variety of traditional Bulgarian dishes, prepared with attention to taste and quality. Our halls combine rustic style with comfort, and during warm months the garden provides coolness and tranquility.",
+    "history-3":
+      "🎧 On Fridays and Saturdays, Chevermeto turns into a lively DJ party with folk music, dancing, and horo until late! No live music, but lots of good vibes and a chance to dance with friends and loved ones.",
+    address:
+      "📍 Address: Vratsa, Vasil Kanchov Street 26\n📞 Reservations: +35992 66 06 94",
+    "greek-salad": "Greek Salad 350g",
+    "greek-desc": "Cow cheese, olive oil, oregano, tomatoes, cucumbers",
+    caprese: "Caprese 300g",
+    "caprese-desc": "Tomatoes with mozzarella and basil",
+    mixed: "Mixed 250g",
+    shopska: "Shopska 300g",
+    ovcharska: "Ovcharska (with ham and mushrooms) 340g",
+    snejanka: "Snejanka 180g",
+    peppers: "Roasted peppers with dill and garlic 250g",
+    cabbage: "Cabbage and carrots 200g",
+    chevermeto: "Chevermeto Salad 350g",
+    "chevermeto-desc": "Snejanka, tomato, cucumber, katak, lyutika",
+    caesar: "Caesar 350g",
+    "caesar-desc": "Iceberg, chicken fillet, tomatoes, dressing",
+    lv: "lv.",
+  },
+};
