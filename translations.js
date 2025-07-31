@@ -84,6 +84,8 @@ const translations = {
     kachamak: "Качамак със сирене 300 г",
     "mish-mash": "Миш-маш 300 г",
     "panagiurishte eggs": "Яйца по панагюрски 300 г",
+
+    social: "Социални мрежи:",
   },
   en: {
     title: 'Tavern "Chevermeto"',
@@ -481,6 +483,8 @@ const translations = {
   "price 23": "23.00 BGN",
   "price 25": "25.00 BGN",
   "price 31": "31.00 BGN",
-  "price 33": "33.00 BGN"
+  "price 33": "33.00 BGN",
+
+  social: "Social networks:",
   },
 };
