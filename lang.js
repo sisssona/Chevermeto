@@ -8,6 +8,7 @@ function switchLanguage(lang) {
 
 function setLanguage(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
+    if (el.classList.contains('price')) return;
     const key = el.getAttribute('data-i18n');
     if (translations[lang][key]) {
       el.textContent = translations[lang][key];
