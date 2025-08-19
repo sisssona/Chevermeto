@@ -1,4 +1,3 @@
-// lang.js
 function switchLanguage(lang) {
   document.documentElement.lang = lang;
 
@@ -15,6 +14,10 @@ function setLanguage(lang) {
     }
   });
   localStorage.setItem('language', lang);
+  if (typeof switchCurrency === 'function') {
+    const savedCurrency = localStorage.getItem('currency') || 'bgn';
+    switchCurrency(savedCurrency);
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -29,4 +32,3 @@ window.addEventListener('DOMContentLoaded', () => {
   const savedCurrency = localStorage.getItem('currency') || 'bgn';
   switchCurrency(savedCurrency);
 });
-
