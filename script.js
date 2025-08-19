@@ -14,7 +14,13 @@
   const prices = document.querySelectorAll('.price');
   prices.forEach(p => {
     const basePrice = parseFloat(p.dataset.price);
-    if (Number.isNaN(basePrice)) return;
+    if (Number.isNaN(basePrice)) {
+      p.classList.add('no-price');
+      p.textContent = '';
+      return;
+    } else {
+      p.classList.remove('no-price');
+    }
     let converted;
 
     if (currency === 'eur') {
@@ -39,7 +45,3 @@
   const converted = priceInBGN * exchangeRates.eur;
   return converted;
  }
-
-
-
-  
