@@ -15,6 +15,10 @@ function setLanguage(lang) {
     }
   });
   localStorage.setItem('language', lang);
+  if (typeof switchCurrency === 'function') {
+    const savedCurrency = localStorage.getItem('currency') || 'bgn';
+    switchCurrency(savedCurrency);
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
