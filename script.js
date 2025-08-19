@@ -1,14 +1,14 @@
  const exchangeRates = {
   bgn: 1,
-  eur: 0.51,
-};
+  eur: 0.5113,
+ };
 
-const pageLang = document.documentElement.lang.toLowerCase();
+ const pageLang = document.documentElement.lang.toLowerCase();
 
-const currencySymbols = {
+ const currencySymbols = {
   bgn: () => document.documentElement.lang === 'bg' ? 'лв.' : 'BGN',
   eur: () => '€',
-};
+ };
 
 function switchCurrency(currency) {
   const prices = document.querySelectorAll('.price');
@@ -26,18 +26,20 @@ function switchCurrency(currency) {
   });
 
   localStorage.setItem('currency', currency);
-}
+ }
 
-// Optional: auto-apply on page load
-window.addEventListener('DOMContentLoaded', () => {
+ // Optional: auto-apply on page load
+ window.addEventListener('DOMContentLoaded', () => {
   const savedCurrency = localStorage.getItem('currency') || 'bgn';
   switchCurrency(savedCurrency);
-});
+ });
 
-function convertToEUR(priceInBGN) {
+ function convertToEUR(priceInBGN) {
   const converted = priceInBGN * exchangeRates.eur;
-  return Math.round(converted * 10) / 10; // nearest 0.10
-}
+  return converted;
+ }
+
+
 
 
 
