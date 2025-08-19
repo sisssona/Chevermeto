@@ -14,6 +14,7 @@
   const prices = document.querySelectorAll('.price');
   prices.forEach(p => {
     const basePrice = parseFloat(p.dataset.price);
+    if (Number.isNaN(basePrice)) return;
     let converted;
 
     if (currency === 'eur') {
