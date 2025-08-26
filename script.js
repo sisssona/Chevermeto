@@ -45,3 +45,5 @@ function convertToEUR(priceInBGN) {
   const converted = priceInBGN * exchangeRates.eur;
   return converted;
 }
+
+
