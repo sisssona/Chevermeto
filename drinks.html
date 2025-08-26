@@ -93,34 +93,237 @@
             clear: both;
         }
 
+        button {
+            font-weight: bold;
+            background-color: #d8cdbf;
+            border-radius: 5px;
+            border-color: #8B0000;
+
+        }
+
         a {
             text-decoration: none;
         }
 
-        @media (max-width: 768px) {
-            body {
-                padding: 0 1rem;
-                font-size: 0.95rem;
+        #hamburger-toggle {
+            margin: 0.5rem 0.5rem 0.5rem 0;
+            padding: 0.5rem 0.75rem;
+            background: #8B0000;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .hamburger-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 80%;
+            max-width: 320px;
+            background: #fffdf6;
+            border-right: 4px double #8B0000;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+            transform: translateX(-100%);
+            transition: transform 0.25s ease;
+            z-index: 1000;
+            padding: 1rem;
+        }
+
+        .hamburger-menu.open {
+            transform: translateX(0);
+        }
+
+        .hamburger-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: #8B0000;
+            font-family: 'Lobster', cursive;
+        }
+
+        #hamburger-close {
+            background: transparent;
+            border: none;
+            font-size: 1.25rem;
+            cursor: pointer;
+            color: #8B0000;
+        }
+
+        #hamburger-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        #hamburger-list li {
+            margin: 0.25rem 0;
+        }
+
+        #hamburger-list a {
+            display: block;
+            padding: 0.5rem 0.25rem;
+            color: #005F1A;
+            text-decoration: none;
+            border-bottom: 1px dotted #C19A6B;
+        }
+
+        #hamburger-list a:hover {
+            color: #8B0000;
+        }
+
+        .hamburger-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35);
+            z-index: 999;
+        }
+
+        /* Make the drawer itself scrollable on small screens */
+        .hamburger-menu {
+            height: 100dvh;
+            /* full dynamic viewport height */
+            overflow-y: auto;
+            /* enable scrolling */
+            -webkit-overflow-scrolling: touch;
+            /* smooth on iOS */
+            overscroll-behavior: contain;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+
+        /* Keep header fixed within the drawer and let the list scroll */
+        .hamburger-header {
+            position: sticky;
+            top: 0;
+            background: #fffdf6;
+            z-index: 1;
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* The list fills remaining space and scrolls independently */
+        #hamburger-list {
+            flex: 1 1 auto;
+            min-height: 0;
+            /* critical so flex child can shrink */
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            padding-right: 4px;
+            /* avoid scrollbar overlap */
+        }
+
+        /* Optional: ensure vertical panning works on touch devices */
+        .hamburger-menu {
+            touch-action: pan-y;
+        }
+
+        body.no-scroll {
+            overflow: hidden;
+        }
+
+        #back-to-top {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            width: 44px;
+            height: 44px;
+            border: none;
+            border-radius: 50%;
+            background: #8B0000;
+            color: #fff;
+            font-size: 20px;
+            line-height: 44px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity .2s ease, transform .2s ease;
+            z-index: 1099;
+            /* above page content; below your hamburger toggle if needed */
+        }
+
+        #back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        header {
+            position: relative;
+        }
+
+        header nav[aria-label="Primary"] {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            display: flex;
+            gap: 12px;
+            z-index: 1001;
+            /* above content */
+        }
+
+        header nav[aria-label="Primary"] a {
+            color: #097d4c;
+            /* match your theme */
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        header nav[aria-label="Primary"] a:hover {
+            color: rgb(30, 126, 30);
+        }
+
+        @media (max-width: 480px) {
+            #back-to-top {
+                right: 12px;
+                bottom: 12px;
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
             }
 
-            .type h3 {
-                font-size: 1.5rem;
+            .hamburger-menu {
+                width: 100%;
+                max-width: none;
             }
 
-            .menu-item h4 {
+            #hamburger-toggle {
+                padding: 0.6rem 1rem;
                 font-size: 1rem;
+            }
+        }
+
+        /* Responsive behavior */
+        @media (max-width: 600px) {
+            .menu-item {
+                flex-direction: column;
+                align-items: flex-start;
             }
 
             .menu-item p {
-                float: none;
-                display: block;
-                text-align: right;
-                margin-top: 0.2rem;
+                margin-top: 0.5rem;
+                align-self: flex-start;
+                /* price below description */
             }
 
-            #menu {
-                padding: 1rem;
-                border-width: 2px;
+            header nav[aria-label="Primary"] {
+                top: 8px;
+                right: 8px;
+                gap: 8px;
+                font-size: 0.95rem;
+            }
+        }
+
+
+
+        @media (min-width: 1024px) {
+            .hamburger-menu {
+                max-width: 360px;
             }
         }
     </style>
@@ -128,420 +331,518 @@
 </head>
 
 <body>
-     <nav>
-        <button onclick="switchCurrency('bgn')">BGN</button>
-        <button onclick="switchCurrency('eur')">EUR</button>
-    </nav>
 
-    <section id="menu">
+    <header>
+        <nav aria-label="Utility">
+            <button id="hamburger-toggle" aria-controls="hamburger" aria-expanded="false">☰ Menu</button>
+            <button onclick="switchCurrency('bgn')">BGN</button>
+            <button onclick="switchCurrency('eur')">EUR</button>
+        </nav>
 
-        <section id="beverages">
+        <aside class="hamburger-menu" id="hamburger" role="navigation" aria-label="Sections">
+            <div class="hamburger-header">
+                <h3>Sections</h3>
+                <button id="hamburger-close" aria-label="Close">✕</button>
+            </div>
+            <ul id="hamburger-list"><!-- JS will fill this --></ul>
+        </aside>
+
+        <div id="hamburger-overlay" class="hamburger-overlay" style="display:none;"></div>
+
+        <nav aria-label="Primary">
+            <a href="index.html">Home</a>
+            <a href="menu.html" data-i18n="menu">📜 Меню</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="menu">
+
+            <section id="beverages">
+                <div class="type">
+                    <h3 data-i18n="non-alcoholic">Безалкохолни</h3>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="coca cola">Кока кола/Кока кола Zero 250 мл</h4>
+                    <p class="price" data-price="3.10" data-i18n="price 3.1">3.10 лв.</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="fanta">Фанта портокал/лимон 250 мл</h4>
+                    <p class="price" data-price="3.10" data-i18n="price 3.1">3.10 лв.</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="sprite">Спрайт 250 мл</h4>
+                    <p class="price" data-price="3.10" data-i18n="price 3.1">3.10 лв.</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="schweppes">Швепс 250 мл</h4>
+                    <div class="menu-item-description" data-i18n="schweppes flavors">Tоник/битер лимон/мандарина</div>
+                    <p class="price" data-price="3.10" data-i18n="price 3.1">3.10 лв.</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="soda">Сода 250 мл</h4>
+                    <p class="price" data-price="2.30" data-i18n="price 2.3">2.30 лв.</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="mineral water">Минерална вода 500 мл</h4>
+                    <p class="price" data-price="2.10" data-i18n="price 2.1">2.10 лв.</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="cappy">Капи 250 мл</h4>
+                    <div class="menu-item-description" data-i18n="cappy flavors">Портокал/червен
+                        портокал/ябълка/кайсия/праскова/вишна</div>
+                    <p class="price" data-price="3.40" data-i18n="price 3.4">3.40 лв.</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="fuzetea">Студен чай - Fuze tea 250 мл</h4>
+                    <div class="menu-item-description" data-i18n="fuzetea flavors">Лимон/праскова</div>
+                    <p class="price" data-price="3.40" data-i18n="price 3.4">3.40 лв.</p>
+                </div>
+            </section>
+
+
+            <section id="hot drinks">
+                <div class="type">
+                    <h3 data-i18n="hot drinks">Топли напитки</h3>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="coffee">Кафе 60 г</h4>
+                    <p class="price" data-price="" data-i18n="price coffee"></p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="3 in 1">3 в 1 60 г</h4>
+                    <p class="price" data-price="" data-i18n="price 3 in 1"></p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="tea">Чай 60 г</h4>
+                    <p class="price" data-price="" data-i18n="price tea"></p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="cream">Сметана</h4>
+                    <p class="price" data-price="" data-i18n="price cream"></p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="honey">Мед</h4>
+                    <p class="price" data-price="" data-i18n="price honey"></p>
+                </div>
+            </section>
+
+            <section id="alcoholic drinks">
+                <div class="type">
+                    <h3 data-i18n="draft beer">НАЛИВНА БИРА</h3>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="stella 330">Stella Artois 330 мл</h4>
+                    <p class="price" data-price="3.50" data-i18n="price 3.5">3.50 лв.</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="stella 500 draft">Stella Artois 500 мл</h4>
+                    <p class="price" data-price="5.00" data-i18n="price 5">5.00 лв.</p>
+                </div>
+
+                <div class="type">
+                    <h3 data-i18n="bottled beer">БУТИЛИРАНА БИРА</h3>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="kamenitza">Каменица 500 мл</h4>
+                    <p class="price" data-price="3.80" data-i18n="price 3.8">3.80 лв.</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="burgasko">Бургаско 500 мл</h4>
+                    <p class="price" data-price="3.80" data-i18n="price 3.8">3.80 лв.</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="staropramen">Staropramen 500 мл</h4>
+                    <p class="price" data-price="4.00" data-i18n="price 4">4.00 лв.</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="staropramen dark">Staropramen dark (сезонно) 500 мл</h4>
+                    <p class="price" data-price="4.00" data-i18n="price 4">4.00 лв.</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="staropramen 0">Staropramen 0% (безалкохолна) 500 мл</h4>
+                    <p class="price" data-price="4.00" data-i18n="price 4">4.00 лв.</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="stella 500 bottle">Stella Artois 500 мл</h4>
+                    <p class="price" data-price="4.60" data-i18n="price 4.6">4.60 лв.</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="corona">Corona 355 мл</h4>
+                    <p class="price" data-price="5.50" data-i18n="price 5.5">5.50 лв.</p>
+                </div>
+            </section>
+
+
             <div class="type">
-                <h3 data-i18n="non-alcoholic">Безалкохолни</h3>
+                <h3 data-i18n="rakia">Ракии</h3>
             </div>
 
             <div class="menu-item">
-                <h4 data-i18n="coca cola">Кока кола/Кока кола Zero 250 мл</h4>
-                <p class="price" data-price="3.10" data-i18n="price 3.1">3.10 лв.</p>
+                <h4 data-i18n="karnobatska muskatova">Карнобатска мускатова 50 мл</h4>
+                <p class="price" data-price="3.20" data-i18n="price 3.2">3.20 лв.</p>
             </div>
 
             <div class="menu-item">
-                <h4 data-i18n="fanta">Фанта портокал/лимон 250 мл</h4>
-                <p class="price" data-price="3.10" data-i18n="price 3.1">3.10 лв.</p>
+                <h4 data-i18n="pomoriyska muskatova">Поморийска мускатова 50 мл</h4>
+                <p class="price" data-price="3.20" data-i18n="price 3.2">3.20 лв.</p>
             </div>
 
             <div class="menu-item">
-                <h4 data-i18n="sprite">Спрайт 250 мл</h4>
-                <p class="price" data-price="3.10" data-i18n="price 3.1">3.10 лв.</p>
-            </div>
-
-            <div class="menu-item">
-                <h4 data-i18n="schweppes">Швепс 250 мл</h4>
-                <div class="menu-item-description" data-i18n="schweppes flavors">Tоник/битер лимон/мандарина</div>
-                <p class="price" data-price="3.10" data-i18n="price 3.1">3.10 лв.</p>
-            </div>
-
-            <div class="menu-item">
-                <h4 data-i18n="soda">Сода 250 мл</h4>
-                <p class="price" data-price="2.30" data-i18n="price 2.3">2.30 лв.</p>
-            </div>
-
-            <div class="menu-item">
-                <h4 data-i18n="mineral water">Минерална вода 500 мл</h4>
-                <p class="price" data-price="2.10" data-i18n="price 2.1">2.10 лв.</p>
-            </div>
-
-            <div class="menu-item">
-                <h4 data-i18n="cappy">Капи 250 мл</h4>
-                <div class="menu-item-description" data-i18n="cappy flavors">Портокал/червен
-                    портокал/ябълка/кайсия/праскова/вишна</div>
-                <p class="price" data-price="3.40" data-i18n="price 3.4">3.40 лв.</p>
-            </div>
-
-            <div class="menu-item">
-                <h4 data-i18n="fuzetea">Студен чай - Fuze tea 250 мл</h4>
-                <div class="menu-item-description" data-i18n="fuzetea flavors">Лимон/праскова</div>
-                <p class="price" data-price="3.40" data-i18n="price 3.4">3.40 лв.</p>
-            </div>
-        </section>
-
-
-        <section id="hot drinks">
-            <div class="type">
-                <h3 data-i18n="hot drinks">Топли напитки</h3>
-            </div>
-
-            <div class="menu-item">
-                <h4 data-i18n="coffee">Кафе 60 г</h4>
-                <p class="price" data-price="" data-i18n="price coffee"></p>
-            </div>
-
-            <div class="menu-item">
-                <h4 data-i18n="3 in 1">3 в 1 60 г</h4>
-                <p class="price" data-price="" data-i18n="price 3 in 1"></p>
-            </div>
-
-            <div class="menu-item">
-                <h4 data-i18n="tea">Чай 60 г</h4>
-                <p class="price" data-price="" data-i18n="price tea"></p>
-            </div>
-
-            <div class="menu-item">
-                <h4 data-i18n="cream">Сметана</h4>
-                <p class="price" data-price="" data-i18n="price cream"></p>
-            </div>
-
-            <div class="menu-item">
-                <h4 data-i18n="honey">Мед</h4>
-                <p class="price" data-price="" data-i18n="price honey"></p>
-            </div>
-        </section>
-
-        <section id="alcoholic drinks">
-            <div class="type">
-                <h3 data-i18n="draft beer">НАЛИВНА БИРА</h3>
-            </div>
-
-            <div class="menu-item">
-                <h4 data-i18n="stella 330">Stella Artois 330 мл</h4>
-                <p class="price" data-price="3.50" data-i18n="price 3.5">3.50 лв.</p>
-            </div>
-
-            <div class="menu-item">
-                <h4 data-i18n="stella 500 draft">Stella Artois 500 мл</h4>
-                <p class="price" data-price="5.00" data-i18n="price 5">5.00 лв.</p>
-            </div>
-
-            <div class="type">
-                <h3 data-i18n="bottled beer">БУТИЛИРАНА БИРА</h3>
-            </div>
-
-            <div class="menu-item">
-                <h4 data-i18n="kamenitza">Каменица 500 мл</h4>
-                <p class="price" data-price="3.80" data-i18n="price 3.8">3.80 лв.</p>
-            </div>
-
-            <div class="menu-item">
-                <h4 data-i18n="burgasko">Бургаско 500 мл</h4>
-                <p class="price" data-price="3.80" data-i18n="price 3.8">3.80 лв.</p>
-            </div>
-
-            <div class="menu-item">
-                <h4 data-i18n="staropramen">Staropramen 500 мл</h4>
+                <h4 data-i18n="slivenska perla">Сливенска перла 50 мл</h4>
                 <p class="price" data-price="4.00" data-i18n="price 4">4.00 лв.</p>
             </div>
 
             <div class="menu-item">
-                <h4 data-i18n="staropramen dark">Staropramen dark (сезонно) 500 мл</h4>
+                <h4 data-i18n="slivova">Сливова 50 мл</h4>
+                <p class="price" data-price="3.00" data-i18n="price 3">3.00 лв.</p>
+            </div>
+
+            <div class="menu-item">
+                <h4 data-i18n="burgaska muskatova">Бургаска мускатова 50 мл</h4>
+                <p class="price" data-price="3.20" data-i18n="price 3.2">3.20 лв.</p>
+            </div>
+
+            <div class="menu-item">
+                <h4 data-i18n="burgas 63">Бургас 63 50 мл</h4>
                 <p class="price" data-price="4.00" data-i18n="price 4">4.00 лв.</p>
             </div>
 
             <div class="menu-item">
-                <h4 data-i18n="staropramen 0">Staropramen 0% (безалкохолна) 500 мл</h4>
+                <h4 data-i18n="burgas 63 barrel">Бургас 63 барел 50 мл</h4>
+                <p class="price" data-price="4.80" data-i18n="price 4.8">4.80 лв.</p>
+            </div>
+
+            <div class="menu-item">
+                <h4 data-i18n="vrachanska temenuga">Врачанска теменуга 50 мл</h4>
+                <p class="price" data-price="4.10" data-i18n="price 4.1">4.10 лв.</p>
+            </div>
+
+            <div class="menu-item">
+                <h4 data-i18n="apricot rakia">Кайсиева 50 мл</h4>
+                <p class="price" data-price="3.00" data-i18n="price 3">3.00 лв.</p>
+            </div>
+
+            <div class="menu-item">
+                <h4 data-i18n="straldzhanska muskatova">Стралджанска мускатова 50 мл</h4>
+                <p class="price" data-price="3.60" data-i18n="price 3.6">3.60 лв.</p>
+            </div>
+
+            <div class="menu-item">
+                <h4 data-i18n="grape rakia">Обикновена гроздова 50 мл</h4>
+                <p class="price" data-price="2.60" data-i18n="price 2.6">2.60 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3 data-i18n="vodka">Водка</h3>
+            </div>
+
+            <div class="menu-item">
+                <h4 data-i18n="savoy silver">Savoy Силвър 50 мл</h4>
+                <p class="price" data-price="2.40" data-i18n="price 2.4">2.40 лв.</p>
+            </div>
+
+            <div class="menu-item">
+                <h4 data-i18n="absolut">Абсолют 50 мл</h4>
                 <p class="price" data-price="4.00" data-i18n="price 4">4.00 лв.</p>
             </div>
 
             <div class="menu-item">
-                <h4 data-i18n="stella 500 bottle">Stella Artois 500 мл</h4>
+                <h4 data-i18n="finlandia">Финландия 50 мл</h4>
+                <p class="price" data-price="4.00" data-i18n="price 4">4.00 лв.</p>
+            </div>
+
+            <div class="menu-item">
+                <h4 data-i18n="russian standard">Руски стандарт 50 мл</h4>
                 <p class="price" data-price="4.60" data-i18n="price 4.6">4.60 лв.</p>
             </div>
 
-            <div class="menu-item">
-                <h4 data-i18n="corona">Corona 355 мл</h4>
-                <p class="price" data-price="5.50" data-i18n="price 5.5">5.50 лв.</p>
+
+            <div class="type">
+                <h3 data-i18n="anise drinks">Анасонови напитки</h3>
             </div>
+            <div class="menu-item">
+                <h4 data-i18n="karnobatska mastika">Карнобатска мастика 50 мл</h4>
+                <p class="price" data-price="" data-i18n=""></p>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="ouzo plomari">Узо Пломари 50 мл</h4>
+                <p class="price" data-price="4.00" data-i18n="price 4">4.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="pastis pernod">Пастис Перно 50 мл</h4>
+                <p class="price" data-price="4.50" data-i18n="price 4.5">4.50 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3 data-i18n="whiskey">Уиски</h3>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="savoy whiskey">Савой 50 мл</h4>
+                <p class="price" data-price="3.50" data-i18n="price 3.5">3.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="bushmills">Бушмилс 50 мл</h4>
+                <p class="price" data-price="6.00" data-i18n="price 6">6.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="baileys">Бейлис 50 мл</h4>
+                <p class="price" data-price="6.00" data-i18n="price 6">6.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="j&b">J&B 50 мл</h4>
+                <p class="price" data-price="6.00" data-i18n="price 6">6.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="jameson">Джеймисън 50 мл</h4>
+                <p class="price" data-price="6.00" data-i18n="price 6">6.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="johnnie walker">Джони Уокър 50 мл</h4>
+                <p class="price" data-price="5.00" data-i18n="price 5">5.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="johnnie walker 12">Джони Уокър 12г. 50 мл</h4>
+                <p class="price" data-price="8.50" data-i18n="price 8.5">8.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="tullamore dew">Тюламор Дю 50 мл</h4>
+                <p class="price" data-price="6.00" data-i18n="price 6">6.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="jim beam">Джим Бийм 50 мл</h4>
+                <p class="price" data-price="6.00" data-i18n="price 6">6.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="jack daniels">Джак Даниелс 50 мл</h4>
+                <p class="price" data-price="7.90" data-i18n="price 7.9">7.90 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3 data-i18n="gin">Джин</h3>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="savoy gin">Савой 50 мл</h4>
+                <p class="price" data-price="2.60" data-i18n="price 2.6">2.60 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="beefeater">Бийфитър 50 мл</h4>
+                <p class="price" data-price="4.40" data-i18n="price 4.4">4.40 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3 data-i18n="rum">Ром</h3>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="savoy rum">Савой 50 мл</h4>
+                <p class="price" data-price="2.60" data-i18n="price 2.6">2.60 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3 data-i18n="vermouth">Вермут - 50 мл</h3>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="bulgarian vermouth">Вермут български</h4>
+                <p class="price" data-price="2.50" data-i18n="price 2.5">2.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="martini">Мартини</h4>
+                <p class="price" data-price="3.00" data-i18n="price 3">3.00 лв.</p>
+                <div class="menu-item-description" data-i18n="bianco dry">Бианко/сухо</div>
+            </div>
+
+            <div class="type">
+                <h3 data-i18n="mint">Мента - 50 мл</h3>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="karnobat mint">Карнобат</h4>
+                <p class="price" data-price="2.50" data-i18n="price 2.5">2.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="marie brizard">Мари Бризар</h4>
+                <p class="price" data-price="3.10" data-i18n="price 3.1">3.10 лв.</p>
+            </div>
+
+
+            <div class="type">
+                <h3 data-i18n="white wines">БЕЛИ ВИНА</h3>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="chateau karnobat white">Шато Карнобат 750 мл</h4>
+                <p class="price" data-price="18.40" data-i18n="price 18.4">18.40 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="cycle white 750">Сайкъл 750 мл</h4>
+                <p class="price" data-price="25.00" data-i18n="price 25">25.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="cycle white 375">Сайкъл 375 мл</h4>
+                <p class="price" data-price="12.50" data-i18n="price 12.5">12.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="starosel white">Старосел 750 мл</h4>
+                <p class="price" data-price="33.00" data-i18n="price 33">33.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="targovishte white">Търговище 750 мл</h4>
+                <p class="price" data-price="23.00" data-i18n="price 23">23.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="glass of wine white">Чаша вино 200 мл</h4>
+                <p class="price" data-price="3.80" data-i18n="price 3.8">3.80 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3 data-i18n="red wines">ЧЕРВЕНИ ВИНА</h3>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="chateau karnobat red">Шато Карнобат 750 мл</h4>
+                <p class="price" data-price="18.40" data-i18n="price 18.4">18.40 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="cycle red 750">Сайкъл 750 мл</h4>
+                <p class="price" data-price="25.00" data-i18n="price 25">25.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="cycle red 375">Сайкъл 375 мл</h4>
+                <p class="price" data-price="12.50" data-i18n="price 12.5">12.50 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="starosel red">Старосел 750 мл</h4>
+                <p class="price" data-price="33.00" data-i18n="price 33">33.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="targovishte red">Търговище 750 мл</h4>
+                <p class="price" data-price="23.00" data-i18n="price 23">23.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="glass of wine red">Чаша вино 200 мл</h4>
+                <p class="price" data-price="3.80" data-i18n="price 3.8">3.80 лв.</p>
+            </div>
+
+            <div class="type">
+                <h3 data-i18n="rose">РОЗЕ</h3>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="cycle rose">Сайкъл 750 мл</h4>
+                <p class="price" data-price="25.00" data-i18n="price 25">25.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="katarzyna rose">Катаржина Розе 750 мл</h4>
+                <p class="price" data-price="31.00" data-i18n="price 31">31.00 лв.</p>
+            </div>
+            <div class="menu-item">
+                <h4 data-i18n="starosel rose">Старосел Розе 750 мл</h4>
+                <p class="price" data-price="33.00" data-i18n="price 33">33.00 лв.</p>
+            </div>
+
+
         </section>
-
-
-        <div class="type">
-            <h3 data-i18n="rakia">Ракии</h3>
-        </div>
-
-        <div class="menu-item">
-            <h4 data-i18n="karnobatska muskatova">Карнобатска мускатова 50 мл</h4>
-            <p class="price" data-price="3.20" data-i18n="price 3.2">3.20 лв.</p>
-        </div>
-
-        <div class="menu-item">
-            <h4 data-i18n="pomoriyska muskatova">Поморийска мускатова 50 мл</h4>
-            <p class="price" data-price="3.20" data-i18n="price 3.2">3.20 лв.</p>
-        </div>
-
-        <div class="menu-item">
-            <h4 data-i18n="slivenska perla">Сливенска перла 50 мл</h4>
-            <p class="price" data-price="4.00" data-i18n="price 4">4.00 лв.</p>
-        </div>
-
-        <div class="menu-item">
-            <h4 data-i18n="slivova">Сливова 50 мл</h4>
-            <p class="price" data-price="3.00" data-i18n="price 3">3.00 лв.</p>
-        </div>
-
-        <div class="menu-item">
-            <h4 data-i18n="burgaska muskatova">Бургаска мускатова 50 мл</h4>
-            <p class="price" data-price="3.20" data-i18n="price 3.2">3.20 лв.</p>
-        </div>
-
-        <div class="menu-item">
-            <h4 data-i18n="burgas 63">Бургас 63 50 мл</h4>
-            <p class="price" data-price="4.00" data-i18n="price 4">4.00 лв.</p>
-        </div>
-
-        <div class="menu-item">
-            <h4 data-i18n="burgas 63 barrel">Бургас 63 барел 50 мл</h4>
-            <p class="price" data-price="4.80" data-i18n="price 4.8">4.80 лв.</p>
-        </div>
-
-        <div class="menu-item">
-            <h4 data-i18n="vrachanska temenuga">Врачанска теменуга 50 мл</h4>
-            <p class="price" data-price="4.10" data-i18n="price 4.1">4.10 лв.</p>
-        </div>
-
-        <div class="menu-item">
-            <h4 data-i18n="apricot rakia">Кайсиева 50 мл</h4>
-            <p class="price" data-price="3.00" data-i18n="price 3">3.00 лв.</p>
-        </div>
-
-        <div class="menu-item">
-            <h4 data-i18n="straldzhanska muskatova">Стралджанска мускатова 50 мл</h4>
-            <p class="price" data-price="3.60" data-i18n="price 3.6">3.60 лв.</p>
-        </div>
-
-        <div class="menu-item">
-            <h4 data-i18n="grape rakia">Обикновена гроздова 50 мл</h4>
-            <p class="price" data-price="2.60" data-i18n="price 2.6">2.60 лв.</p>
-        </div>
-
-        <div class="type">
-            <h3 data-i18n="vodka">Водка</h3>
-        </div>
-
-        <div class="menu-item">
-            <h4 data-i18n="savoy silver">Savoy Силвър 50 мл</h4>
-            <p class="price" data-price="2.40" data-i18n="price 2.4">2.40 лв.</p>
-        </div>
-
-        <div class="menu-item">
-            <h4 data-i18n="absolut">Абсолют 50 мл</h4>
-            <p class="price" data-price="4.00" data-i18n="price 4">4.00 лв.</p>
-        </div>
-
-        <div class="menu-item">
-            <h4 data-i18n="finlandia">Финландия 50 мл</h4>
-            <p class="price" data-price="4.00" data-i18n="price 4">4.00 лв.</p>
-        </div>
-
-        <div class="menu-item">
-            <h4 data-i18n="russian standard">Руски стандарт 50 мл</h4>
-            <p class="price" data-price="4.60" data-i18n="price 4.6">4.60 лв.</p>
-        </div>
-
-
-        <div class="type">
-            <h3 data-i18n="anise drinks">Анасонови напитки</h3>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="karnobatska mastika">Карнобатска мастика 50 мл</h4>
-            <p class="price" data-price="" data-i18n=""></p>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="ouzo plomari">Узо Пломари 50 мл</h4>
-            <p class="price" data-price="4.00" data-i18n="price 4">4.00 лв.</p>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="pastis pernod">Пастис Перно 50 мл</h4>
-            <p class="price" data-price="4.50" data-i18n="price 4.5">4.50 лв.</p>
-        </div>
-
-        <div class="type">
-            <h3 data-i18n="whiskey">Уиски</h3>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="savoy whiskey">Савой 50 мл</h4>
-            <p class="price" data-price="3.50" data-i18n="price 3.5">3.50 лв.</p>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="bushmills">Бушмилс 50 мл</h4>
-            <p class="price" data-price="6.00" data-i18n="price 6">6.00 лв.</p>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="baileys">Бейлис 50 мл</h4>
-            <p class="price" data-price="6.00" data-i18n="price 6">6.00 лв.</p>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="j&b">J&B 50 мл</h4>
-            <p class="price" data-price="6.00" data-i18n="price 6">6.00 лв.</p>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="jameson">Джеймисън 50 мл</h4>
-            <p class="price" data-price="6.00" data-i18n="price 6">6.00 лв.</p>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="johnnie walker">Джони Уокър 50 мл</h4>
-            <p class="price" data-price="5.00" data-i18n="price 5">5.00 лв.</p>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="johnnie walker 12">Джони Уокър 12г. 50 мл</h4>
-            <p class="price" data-price="8.50" data-i18n="price 8.5">8.50 лв.</p>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="tullamore dew">Тюламор Дю 50 мл</h4>
-            <p class="price" data-price="6.00" data-i18n="price 6">6.00 лв.</p>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="jim beam">Джим Бийм 50 мл</h4>
-            <p class="price" data-price="6.00" data-i18n="price 6">6.00 лв.</p>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="jack daniels">Джак Даниелс 50 мл</h4>
-            <p class="price" data-price="7.90" data-i18n="price 7.9">7.90 лв.</p>
-        </div>
-
-        <div class="type">
-            <h3 data-i18n="gin">Джин</h3>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="savoy gin">Савой 50 мл</h4>
-            <p class="price" data-price="2.60" data-i18n="price 2.6">2.60 лв.</p>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="beefeater">Бийфитър 50 мл</h4>
-            <p class="price" data-price="4.40" data-i18n="price 4.4">4.40 лв.</p>
-        </div>
-
-        <div class="type">
-            <h3 data-i18n="rum">Ром</h3>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="savoy rum">Савой 50 мл</h4>
-            <p class="price" data-price="2.60" data-i18n="price 2.6">2.60 лв.</p>
-        </div>
-
-        <div class="type">
-            <h3 data-i18n="vermouth">Вермут - 50 мл</h3>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="bulgarian vermouth">Вермут български</h4>
-            <p class="price" data-price="2.50" data-i18n="price 2.5">2.50 лв.</p>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="martini">Мартини</h4>
-            <p class="price" data-price="3.00" data-i18n="price 3">3.00 лв.</p>
-            <div class="menu-item-description" data-i18n="bianco dry">Бианко/сухо</div>
-        </div>
-
-        <div class="type">
-            <h3 data-i18n="mint">Мента - 50 мл</h3>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="karnobat mint">Карнобат</h4>
-            <p class="price" data-price="2.50" data-i18n="price 2.5">2.50 лв.</p>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="marie brizard">Мари Бризар</h4>
-            <p class="price" data-price="3.10" data-i18n="price 3.1">3.10 лв.</p>
-        </div>
-
-
-        <div class="type">
-            <h3 data-i18n="white wines">БЕЛИ ВИНА</h3>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="chateau karnobat white">Шато Карнобат 750 мл</h4>
-            <p class="price" data-price="18.40" data-i18n="price 18.4">18.40 лв.</p>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="cycle white 750">Сайкъл 750 мл</h4>
-            <p class="price" data-price="25.00" data-i18n="price 25">25.00 лв.</p>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="cycle white 375">Сайкъл 375 мл</h4>
-            <p class="price" data-price="12.50" data-i18n="price 12.5">12.50 лв.</p>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="starosel white">Старосел 750 мл</h4>
-            <p class="price" data-price="33.00" data-i18n="price 33">33.00 лв.</p>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="targovishte white">Търговище 750 мл</h4>
-            <p class="price" data-price="23.00" data-i18n="price 23">23.00 лв.</p>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="glass of wine white">Чаша вино 200 мл</h4>
-            <p class="price" data-price="3.80" data-i18n="price 3.8">3.80 лв.</p>
-        </div>
-
-        <div class="type">
-            <h3 data-i18n="red wines">ЧЕРВЕНИ ВИНА</h3>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="chateau karnobat red">Шато Карнобат 750 мл</h4>
-            <p class="price" data-price="18.40" data-i18n="price 18.4">18.40 лв.</p>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="cycle red 750">Сайкъл 750 мл</h4>
-            <p class="price" data-price="25.00" data-i18n="price 25">25.00 лв.</p>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="cycle red 375">Сайкъл 375 мл</h4>
-            <p class="price" data-price="12.50" data-i18n="price 12.5">12.50 лв.</p>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="starosel red">Старосел 750 мл</h4>
-            <p class="price" data-price="33.00" data-i18n="price 33">33.00 лв.</p>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="targovishte red">Търговище 750 мл</h4>
-            <p class="price" data-price="23.00" data-i18n="price 23">23.00 лв.</p>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="glass of wine red">Чаша вино 200 мл</h4>
-            <p class="price" data-price="3.80" data-i18n="price 3.8">3.80 лв.</p>
-        </div>
-
-        <div class="type">
-            <h3 data-i18n="rose">РОЗЕ</h3>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="cycle rose">Сайкъл 750 мл</h4>
-            <p class="price" data-price="25.00" data-i18n="price 25">25.00 лв.</p>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="katarzyna rose">Катаржина Розе 750 мл</h4>
-            <p class="price" data-price="31.00" data-i18n="price 31">31.00 лв.</p>
-        </div>
-        <div class="menu-item">
-            <h4 data-i18n="starosel rose">Старосел Розе 750 мл</h4>
-            <p class="price" data-price="33.00" data-i18n="price 33">33.00 лв.</p>
-        </div>
-
-
-    </section>
-    </section>
+        </section>
+    </main>
 
     <script src="translations.js"></script>
     <script src="lang.js"></script>
     <script src="script.js"></script>
+    <button id="back-to-top" aria-label="Back to top">↑</button>
+    <script>
+        (function () {
+            const menu = document.getElementById('hamburger');
+            const list = document.getElementById('hamburger-list');
+            const toggle = document.getElementById('hamburger-toggle');
+            const closeBtn = document.getElementById('hamburger-close');
+            const overlay = document.getElementById('hamburger-overlay');
+
+            if (!menu || !list || !toggle || !closeBtn || !overlay) return;
+
+            // Collect sections and build menu
+            const sections = Array.from(document.querySelectorAll('#beverages .type'));
+            list.innerHTML = '';
+
+            list.insertAdjacentHTML('afterbegin', `
+            <li><a href="index.html">← Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><hr></li>
+            `);
+
+            sections.forEach(section => {
+                const title = section.querySelector('h3');
+                if (!title) return;
+                if (!section.id) {
+                    section.id = `section-${title.textContent.trim().toLowerCase().replace(/\s+/g, '-')}`;
+                }
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = `#${section.id}`;
+                a.textContent = title.textContent.trim();
+                a.addEventListener('click', () => {
+                    closeMenu();
+                });
+                li.appendChild(a);
+                list.appendChild(li);
+            });
+
+            function openMenu() {
+                menu.classList.add('open');
+                overlay.style.display = 'block';
+                document.getElementById('hamburger-toggle').setAttribute('aria-expanded', 'true');
+                document.body.classList.add('no-scroll');
+                backTop && backTop.classList.remove('visible');
+            }
+
+            function closeMenu() {
+                menu.classList.remove('open');
+                overlay.style.display = 'none';
+                document.getElementById('hamburger-toggle').setAttribute('aria-expanded', 'false');
+                document.body.classList.remove('no-scroll');
+                backTop && (window.requestAnimationFrame(() => backTop.classList.add('visible')));
+            }
+
+            toggle.addEventListener('click', openMenu);
+            closeBtn.addEventListener('click', closeMenu);
+            overlay.addEventListener('click', closeMenu);
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeMenu();
+            });
+
+            const backTop = document.getElementById('back-to-top');
+            if (backTop) {
+                const toggleBackTop = () => {
+                    const show = window.scrollY > 300;
+                    backTop.classList.toggle('visible', show);
+                };
+                window.addEventListener('scroll', toggleBackTop, { passive: true });
+                toggleBackTop();
+
+                backTop.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        })();
+    </script>
 </body>
 
 </html>
