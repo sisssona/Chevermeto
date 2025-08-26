@@ -51,19 +51,6 @@ main {
     color: #f1ead1;
 }
 
-.left-side {
-    justify-content: left;
-    width: 900px;
-}
-
-.right-side {
-    justify-content: right;
-}
-
-main img {
-    object-fit:contain;
-}
-
 main nav  {
     padding-bottom: 20px;
     padding-top: 20px;
@@ -88,17 +75,7 @@ main a {
     text-decoration: none;
 }
 
-main h2 {
-    font-size: 1.6rem;
-    color: #f8e1cf;
-    font-family: 'Neucha', cursive;
-    position: relative;
-    border-bottom: 3px solid black;
-    padding: 20px 0;
-    background-color: #763f21;
-}
-
-main [data-i18n="gallery"]::before {
+.primary-links li:nth-child(2) a::before {
     content: "🖼️ ";
     margin-right: 8px;
 }
@@ -162,6 +139,40 @@ svg {
     fill: blue;
 }
 
+.main-split {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    min-height: 420px;
+}
+
+.main-left {
+    overflow: hidden;
+    background: #000;
+}
+
+.main-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.primary-links a {
+    font-size: 1.4rem;
+    display: inline-block;
+    padding: 8px 0;
+}
+/* Responsive: stack columns on narrow screens */
+@media (max-width: 800px) {
+    .main-split {
+        grid-template-columns: 1fr;
+    }
+
+    .main-left {
+        height: 240px;
+    }
+}
+
 /* ✅ Responsive Adjustments */
 @media (max-width: 600px) {
     header {
@@ -174,10 +185,6 @@ svg {
 
     header nav a {
         font-size: 1.2rem;
-    }
-
-    main h2 {
-        font-size: 1.3rem;
     }
 
     h3 {
