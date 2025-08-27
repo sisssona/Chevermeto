@@ -196,6 +196,26 @@ svg {
 .primary-links a:focus-visible { outline: 3px solid #2d6a4f; outline-offset: 2px; }
 
 /* ✅ Responsive Adjustments */
+@media (max-width: 1024px) {
+    .main-split { grid-template-columns: 55% 45%; min-height: 80vh; }
+    header h1 { font-size: 2.2rem; }
+    .primary-links a { font-size: 1.3rem; }
+}
+
+@media (max-width: 800px) {
+    .main-split { grid-template-columns: 1fr; min-height: 0; }
+    .main-left { height: 260px; }
+    .main-right { display: flex; }
+    .main-right > nav { flex: 1; display: flex; justify-content: center; align-items: center; }
+    .main-right .primary-links {
+        display: flex; flex-direction: column; gap: 16px; align-items: center; margin: 0; padding: 0; list-style: none;
+    }
+    .primary-links a {
+        display: inline-flex; align-items: center; justify-content: center;
+        min-width: 220px; min-height: 52px; padding: 0 16px; font-size: 1.2rem;
+    }
+}
+
 @media (max-width: 600px) {
     header {
         padding: 15px;
@@ -264,4 +284,6 @@ svg {
     width: 100px;
     justify-content: center;
   }
+
+   .primary-links a { width: 100%; max-width: 320px; min-height: 48px; font-size: 1.1rem; }
 }
