@@ -45,12 +45,6 @@ header h1 {
     padding-bottom: 20px;
 }
 
-main {
-    display: flex;
-    flex-direction: row;
-    color: #f1ead1;
-}
-
 main nav  {
     padding-bottom: 20px;
     padding-top: 20px;
@@ -78,6 +72,10 @@ main a {
 .primary-links li:nth-child(2) a::before {
     content: "🖼️ ";
     margin-right: 8px;
+}
+
+.primary-links li {
+    list-style-type: none;
 }
 
 h3 {
@@ -142,7 +140,8 @@ svg {
 .main-split {
     display: grid;
     grid-template-columns: 60% 40%;
-    min-height: 420px;
+      min-height: 100vh;
+    align-items: stretch;
 }
 
 .main-left {
@@ -155,6 +154,22 @@ svg {
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+
+
+.main-right [aria-label="Primary"] {
+      width: 100%;   
+      background-color: #eee6cb;
+}
+
+.main-right .primary-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .primary-links a {
