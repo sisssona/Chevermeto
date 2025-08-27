@@ -204,7 +204,8 @@ svg {
 
 @media (max-width: 800px) {
     .main-split { grid-template-columns: 1fr; min-height: 0; }
-    .main-left { height: 260px; }
+     .main-left { height: auto; }
+  .main-left img { width: 100%; height: auto; object-fit: contain; }
     .main-right { display: flex; }
     .main-right > nav { flex: 1; display: flex; justify-content: center; align-items: center; }
     .main-right .primary-links {
@@ -250,9 +251,11 @@ svg {
         grid-template-columns: 1fr;
     }
 
-    .main-left {
-        height: 240px;
-    }
+ .main-left { height: auto; }
+  .main-left img {
+    width: 100%;
+    height: auto;        /* keep full image */
+    object-fit: contain; /* no cropping */
 
     footer {
         font-size: 0.9rem;
