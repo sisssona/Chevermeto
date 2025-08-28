@@ -87,8 +87,8 @@ footer {
 }
 
 .map-container {
-    width: 400px;
-    height: 300px;
+    width: min(400px, 100%);
+    aspect-ratio: 4/3;
     margin: 10px auto;
 }
 
@@ -147,11 +147,13 @@ svg {
 
 .main-right {
     display: flex;
-    height: 100vh;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 16px 0;
 }
 
 .main-right>nav {
-    flex: 1;
+    flex: 0 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -159,7 +161,6 @@ svg {
 
 .main-right [aria-label="Primary"] {
     width: 100%;
-    height: 100vh;
     text-align: center;
 }
 
@@ -237,17 +238,6 @@ svg {
         object-fit: contain;
     }
 
-    .main-right {
-        display: flex;
-    }
-
-    .main-right>nav {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
     .main-right .primary-links {
         display: flex;
         flex-direction: column;
@@ -292,30 +282,11 @@ svg {
         /* keep full image */
         object-fit: contain;
         /* no cropping */
+    }
 
         footer {
             font-size: 0.9rem;
             padding: 15px;
-        }
-
-        .map-container {
-            width: 100%;
-            /* full width of parent */
-            height: auto;
-            /* keep aspect ratio with padding trick */
-            position: relative;
-            padding-bottom: 75%;
-            /* 300 / 400 = 0.75 aspect ratio */
-            height: 0;
-            /* required for aspect ratio trick */
-        }
-
-        .map-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
         }
 
         .language-switcher {
@@ -328,15 +299,9 @@ svg {
             justify-content: center;
         }
 
-        .primary-links a {
-            width: 100%;
-            max-width: 320px;
-            min-height: 48px;
-            font-size: 1.1rem;
-        }
-
-        .main-right {
+                .main-right {
             display: block;
+            padding: 12px 0;
         }
 
         .main-right>nav {
@@ -346,7 +311,7 @@ svg {
             border: 0;
         }
 
-        /* Tighter list spacing */
+              /* Tighter list spacing */
         .main-right .primary-links {
             gap: 8px;
             /* was 16–20px */
@@ -358,13 +323,15 @@ svg {
 
         /* Smaller buttons/links */
         .primary-links a {
-            min-height: 40px;
-            /* was 48–56px */
-            padding: 4px 10px;
-            /* was larger */
-            font-size: 1rem;
-            /* slightly smaller */
-             width: min(100%, 320px); max-width: 100%;
+             width: min(100%, 320px); 
+             max-width: 100%;
+             min-height: 40px;
+             padding: 4px 10px;
+             font-size: 1rem;
         }
+
+        .map-container{
+        width: clamp(240px, 60vw, 400px)
+        }
+
     }
-}
