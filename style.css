@@ -229,13 +229,13 @@ svg {
     }
 
     .main-left {
-        height: auto;
+        height: 50vh;
     }
 
     .main-left img {
         width: 100%;
-        height: auto;
-        object-fit: contain;
+        height: 100%;
+        object-fit: cover;
     }
 
     .main-right {
@@ -282,15 +282,13 @@ svg {
     }
 
     .main-left {
-        height: auto;
+        height: 45vh;
     }
 
     .main-left img {
         width: 100%;
-        height: auto;
-        /* keep full image */
-        object-fit: contain;
-        /* no cropping */
+        height: 100%;
+        object-fit: cover;
     }
 
     footer {
