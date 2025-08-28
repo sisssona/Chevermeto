@@ -87,7 +87,7 @@ footer {
 }
 
 .map-container {
-    width: min(400px, 100%);
+    width: clamp(240px, 60vw, 400px);
     aspect-ratio: 4 / 3;
     margin: 10px auto;
 }
