@@ -7,6 +7,14 @@
     box-sizing: border-box;
 }
 
+html, body, .wrapper, .main-split { overflow-x: hidden; }
+
+img, svg, video, canvas, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 html,
 body {
     height: 100%;
@@ -68,16 +76,6 @@ main a {
 
 .primary-links li {
     list-style-type: none;
-}
-
-h3 {
-    font-size: 1.8rem;
-    padding-bottom: 20px;
-}
-
-h4 {
-    font-size: 1.5rem;
-    padding-bottom: 20px;
 }
 
 footer {
@@ -335,6 +333,38 @@ svg {
             max-width: 320px;
             min-height: 48px;
             font-size: 1.1rem;
+        }
+
+        .main-right {
+            display: block;
+        }
+
+        .main-right>nav {
+            display: block;
+            padding: 8px 0;
+            background: transparent;
+            border: 0;
+        }
+
+        /* Tighter list spacing */
+        .main-right .primary-links {
+            gap: 8px;
+            /* was 16–20px */
+            align-items: center;
+            /* keep centered horizontally */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Smaller buttons/links */
+        .primary-links a {
+            min-height: 40px;
+            /* was 48–56px */
+            padding: 4px 10px;
+            /* was larger */
+            font-size: 1rem;
+            /* slightly smaller */
+             width: min(100%, 320px); max-width: 100%;
         }
     }
 }
