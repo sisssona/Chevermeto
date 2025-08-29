@@ -7,12 +7,21 @@
     box-sizing: border-box;
 }
 
-html, body, .wrapper, .main-split { overflow-x: hidden; }
+html,
+body,
+.wrapper,
+.main-split {
+    overflow-x: hidden;
+}
 
-img, svg, video, canvas, iframe {
-  max-width: 100%;
-  height: auto;
-  display: block;
+img,
+svg,
+video,
+canvas,
+iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 html,
@@ -186,7 +195,6 @@ svg {
     background: #5e3b1f;
     border: 2px solid #532c0d;
     border-radius: 9999px;
-    /* pill button */
     padding: 0 18px;
     transition: background .2s, box-shadow .2s, transform .05s;
     text-decoration: none;
@@ -279,69 +287,66 @@ svg {
     .main-left img {
         width: 100%;
         height: auto;
-        /* keep full image */
         object-fit: contain;
-        /* no cropping */
     }
 
-        footer {
-            font-size: 0.9rem;
-            padding: 15px;
-        }
+    footer {
+        font-size: 0.9rem;
+        padding: 15px;
+    }
 
-        .language-switcher {
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+    .language-switcher {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
-        .language-switcher button {
-            width: 100px;
-            justify-content: center;
-        }
+    .language-switcher button {
+        width: 100px;
+        justify-content: center;
+    }
 
-                .main-right {
-            display: block;
-            padding: 12px 0;
-        }
+    .main-right {
+        display: block;
+        padding: 12px 0;
+        background-color: #eee2cb;
+    }
 
-        .main-right>nav {
-            display: block;
-            padding: 8px 0;
-            background: transparent;
-            border: 0;
-        }
+    .main-right>nav {
+        display: block;
+        padding: 8px 0;
+        background: transparent;
+        border: 0;
+    }
 
-        .main-right [aria-label="Primary"] {
-    height: fit-content;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    .main-right [aria-label="Primary"] {
+        height: fit-content;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .main-right .primary-links {
+        gap: 8px;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .primary-links a {
+        width: min(100%, 320px);
+        max-width: 100%;
+        min-height: 40px;
+        padding: 4px 10px;
+        font-size: 1rem;
+    }
+
+    .map-container {
+        width: clamp(240px, 60vw, 400px);
+    }
+
 }
 
-              /* Tighter list spacing */
-        .main-right .primary-links {
-            gap: 8px;
-            /* was 16–20px */
-            align-items: center;
-            /* keep centered horizontally */
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Smaller buttons/links */
-        .primary-links a {
-             width: min(100%, 320px); 
-             max-width: 100%;
-             min-height: 40px;
-             padding: 4px 10px;
-             font-size: 1rem;
-        }
-
-        .map-container{
-        width: clamp(240px, 60vw, 400px)
-        }
-
+@media (max-width: 480px) {
+    .map-container {
+        width: clamp(200px, 50vw, 320px);
     }
-
-    @media (max-width: 480px) {
-  .map-container { width: clamp(200px, 50vw, 320px); }
 }
