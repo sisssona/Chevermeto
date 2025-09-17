@@ -13,19 +13,18 @@
     .gallery {
       background-color: rgb(204, 204, 176);
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
       gap: 16px;
       padding: 20px;
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
       box-sizing: border-box;
     }
 
     .gallery img {
       width: 100%;              /* Responsive width */
-      max-width: 300px;         /* Limit size on large screens */
-      height: 200px;
-      object-fit: cover;
+      height: auto;             /* Preserve natural aspect ratio */
+      max-width: 100%;
       border-radius: 8px;
       cursor: pointer;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -43,19 +42,15 @@
         padding: 10px;
         gap: 10px;
       }
-
-      .gallery img {
-        height: 150px;
-      }
     }
     </style>
 </head>
 <body>
     <div class="gallery" id="gallery">
-        <img src="gallery/banquet/Beige Simple Minimalist Wedding Menu1.jpg" alt="">
-        <img src="gallery/banquet/Beige Simple Minimalist Wedding Menu 2.jpg" alt="">
-        <img src="gallery/banquet/Beige Simple Minimalist Wedding Menu 3.jpg" alt="">
-        <img src="gallery/banquet/Beige Simple Minimalist Wedding Menu 4.jpg" alt="">
+        <img src="gallery/banquet/Beige Simple Minimalist Wedding Menu1.jpg" alt="Beige minimalist wedding banquet menu page 1" loading="lazy">
+        <img src="gallery/banquet/Beige Simple Minimalist Wedding Menu 2.jpg" alt="Beige minimalist wedding banquet menu page 2" loading="lazy">
+        <img src="gallery/banquet/Beige Simple Minimalist Wedding Menu 3.jpg" alt="Beige minimalist wedding banquet menu page 3" loading="lazy">
+        <img src="gallery/banquet/Beige Simple Minimalist Wedding Menu 4.jpg" alt="Beige minimalist wedding banquet menu page 4" loading="lazy">
     </div>
     
 </body>
