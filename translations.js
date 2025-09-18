@@ -127,7 +127,7 @@ const translations = {
     // Cold Appetizers
     sirene: "Bulgarian cow cheese",
     kashkaval: "Yellow cheese",
-    shpek: "speck salami",
+    shpek: "Speck salami",
     pastarma: "Pastarma",
     fileElena: "Fillet Elena",
     lukanka: "Lukanka",
