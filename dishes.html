@@ -1197,7 +1197,7 @@
 
             list.insertAdjacentHTML('afterbegin', `
             <li><a href="index.html">← Home</a></li>
-            <li><a href="menu.html">Menu</a></li>
+            <li><a href="menu.html" data-i18n="menu">Menu</a></li>
             <li><hr></li>
             `);
 
@@ -1210,7 +1210,20 @@
                 const li = document.createElement('li');
                 const a = document.createElement('a');
                 a.href = `#${section.id}`;
-                a.textContent = title.textContent.trim();
+                const key = title.getAttribute('data-i18n');
+                if (key) {
+                    a.setAttribute('data-i18n', key);
+                    const savedLang = localStorage.getItem('language' || 'bg');
+                    if ( typeof translations !== 'undefined' && translations[savedLang] && translations[savedLang][key]) {
+                        a.textContent = translations[savedLang][key];
+                    } else {
+                        a.textContent = title.textContent.trim();
+                    }
+                } else {
+                    a.addEventListener('click', () => {
+                        closeMenu();
+                    })
+                }
                 a.addEventListener('click', () => {
                     closeMenu();
                 });
