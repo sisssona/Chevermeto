@@ -93,6 +93,7 @@ const translations = {
     menu: "📜 Menu",
     gallery: "Gallery",
     about: "About us",
+    banquet: "Banquet menus",
     dishes: "Dishes",
     drinks: "Drinks",
     salads: "Salads",
