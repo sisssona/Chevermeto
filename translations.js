@@ -254,7 +254,8 @@ const translations = {
 "200g": "200g",
 "100g": "100g",
 
-"blue cheverme mixed": "Blue Cheverme Mixed",
+
+"cheverme mixed dish": "Cheverme Mixed Dish",
 "for 6 people": "/FOR 6 PEOPLE/",
 "for 3 people": "/FOR 3 PEOPLE/",
 "chicken shashlik": "Chicken Shashlik",
