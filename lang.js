@@ -14,10 +14,6 @@ function setLanguage(lang) {
     }
   });
   localStorage.setItem('language', lang);
-  if (typeof switchCurrency === 'function') {
-    const savedCurrency = localStorage.getItem('currency') || 'bgn';
-    switchCurrency(savedCurrency);
-  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -28,7 +24,4 @@ document.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('DOMContentLoaded', () => {
   const savedLang = localStorage.getItem('language') || 'bg';
   document.documentElement.lang = savedLang;
-
-  const savedCurrency = localStorage.getItem('currency') || 'bgn';
-  switchCurrency(savedCurrency);
 });
