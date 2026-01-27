@@ -147,7 +147,7 @@ const translations = {
     bakedCheese: "Baked Cheese in Lid 150g",
     kashkavalPane: "Breaded Yellow Cheese 220g",
     kashkavalBites: "Breaded Yellow Cheese Bites 120g",
-    meltedCheese: "Breaded Processed Cheese 120g",
+    meltedCheese: "Breaded Processed Cheese with blueberry jam 120g",
     chickenHearts: "Chicken Hearts in Butter 220g",
     mushrooms: "Mushrooms in Butter 150g",
     pepperBurek: "Stuffed Pepper Burek 1 pc",
