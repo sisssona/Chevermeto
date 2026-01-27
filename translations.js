@@ -156,7 +156,8 @@ const translations = {
     soups: "Soups",
     tripe: "Tripe Soup 300g",
     tarator: "Tarator (Cold Cucumber Soup with yogurt) 300g",
-    "soup of the day": "Soup of the Day 300g",
+    "chicken-soup": "Chicken soup",
+    "meatballs-soup": "Meatballs soup",
 
     sachs: "Sach Dishes",
     sach: "Sach 650g",
@@ -176,6 +177,7 @@ const translations = {
     kachamak: "Kachamak with Cheese 300g",
     "mish-mash": "Mish-Mash 300g",
     "panagiurishte eggs": "Eggs Panagyurishte Style 300g",
+    "bean stew": "Bean stew",
 
     "chicken dishes": "Chicken Dishes",
     "chicken fillet spindle": "Chicken Spindle 400g",
@@ -331,7 +333,7 @@ const translations = {
   "price 2.1": "2.10 BGN",
   "price 3.4": "3.40 BGN",
 
-      "hot drinks": "Hot Drinks",
+  "hot drinks": "Hot Drinks",
   "coffee": "Coffee 60g",
   "3 in 1": "3 in 1 Coffee 60g",
   "tea": "Tea 60g",
