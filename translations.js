@@ -57,7 +57,7 @@ const translations = {
     bakedCheese: "Сирене под капак 150 г",
     kashkavalPane: "Кашкавал пане 220 г",
     kashkavalBites: "Кашкавал пане хапки 120 г",
-    meltedCheese: "Топено сирене пане 120 г",
+    meltedCheese: "Топено сирене пане със сладко от боровинки 200 г",
     chickenHearts: "Пилешки сърца в масло 220 г",
     mushrooms: "Гъби в масло 150 г",
     pepperBurek: "Чушка бюрек 1 бр.",
