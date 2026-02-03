@@ -327,7 +327,6 @@ const translations = {
   "cappy flavors": "Orange / Red Orange / Apple / Apricot / Peach / Sour Cherry",
   "fuzetea": "Fuze Tea 250ml",
   "fuzetea flavors": "Lemon / Peach",
-  "red-bull": "Red Bull",
   "price 3.1": "3.10 BGN",
   "price 2.3": "2.30 BGN",
   "price 2.1": "2.10 BGN",
