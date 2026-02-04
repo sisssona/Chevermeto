@@ -1,6 +1,6 @@
 const exchangeRates = {
-  bgn: 1,
-  eur: 0.5113,
+  eur: 1,
+  bgn: 1.95583,
 };
 
 const pageLang = document.documentElement.lang.toLowerCase();
