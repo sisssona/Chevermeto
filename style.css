@@ -95,10 +95,32 @@ footer {
     color: rgb(56, 45, 45);
 }
 
+footer>.mapAndReviews {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
+.reviews {
+    grid-column: 3;
+    justify-self: end;
+}
+
+footer>.mapAndReviews>.reviews {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+footer>.mapAndReviews>.reviews> :first-of-type {
+    font-weight: bold;
+}
+
 .map-container {
     width: min(400px, 100%);
     aspect-ratio: 4/3;
     margin: 10px auto;
+    grid-column: 2;
 }
 
 .map-container iframe {
@@ -339,8 +361,25 @@ svg {
         font-size: 1rem;
     }
 
-    .map-container {
-        width: clamp(240px, 60vw, 400px);
+    footer > .mapAndReviews {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    }
+
+    .reviews,
+.map-container {
+    grid-column: auto;
+}
+
+    footer > .mapAndReviews > .reviews {
+        align-items: center;
+    }
+
+     .map-container {
+        width: min(400px, 90vw);
     }
 
 }
