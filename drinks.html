@@ -4,17 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dishes</title>
+    <title>Drinks</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Lobster&display=swap');
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body.no-scroll {
-            overflow: hidden;
-        }
 
         body {
             background-color: #FAF3E0;
@@ -33,55 +25,6 @@
             margin: 1.5rem 0 0.5rem;
         }
 
-        table {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto 1.5rem;
-            border-collapse: collapse;
-            border: 3px double #8B0000;
-            background-color: #fffdf6;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
-        }
-
-        /* Table header cells */
-        table th {
-            background-color: #8B0000;
-            color: #fff;
-            font-size: 1.1rem;
-            padding: 0.6rem;
-            border: 1px solid #C19A6B;
-            text-align: center;
-        }
-
-        /* Table data cells */
-        table td {
-            padding: 0.6rem;
-            border: 1px solid #C19A6B;
-            text-align: center;
-            font-size: 0.95rem;
-            color: #333;
-        }
-
-        /* Alternate row background */
-        table tr:nth-child(even) {
-            background-color: #f5f0e6;
-        }
-
-        /* Empty cell row styling */
-        table tr td[colspan],
-        table tr td:empty {
-            background-color: #fffdf6;
-            border: none;
-        }
-
-        /* Price row bold */
-        table tr:last-child th {
-            font-size: 1.1rem;
-            color: #8B0000;
-            background-color: #ffe5d0;
-        }
-
-        /* Menu container */
         #menu {
             max-width: 800px;
             margin: 1.5rem auto;
@@ -102,15 +45,22 @@
             margin-bottom: 0.8rem;
         }
 
+        /* Section titles */
+        #menu h2 {
+            border-bottom: 1px solid #C19A6B;
+            padding-bottom: 0.3rem;
+            margin-top: 1.5rem;
+        }
+
         /* Menu item */
         .menu-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            border-bottom: 1px dotted #C19A6B;
             margin-bottom: 0.5rem;
             padding: 0.3rem 0;
+            border-bottom: 1px dotted #C19A6B;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
         }
 
         /* Item title */
@@ -118,8 +68,7 @@
             font-weight: bold;
             font-size: 1rem;
             color: #005F1A;
-            margin: 0 1rem 0 0;
-            flex-basis: 100%;
+            margin: 0;
         }
 
         /* Item description */
@@ -127,18 +76,21 @@
             font-size: 0.9rem;
             color: #555;
             margin-top: 0.2rem;
-            flex: 1 1 auto;
-            min-width: 0;
         }
 
         /* Item price */
         .menu-item p {
+            float: right;
             color: #8B0000;
             font-weight: bold;
             margin: 0;
-            white-space: nowrap;
-            flex-shrink: 0;
-            align-self: flex-start;
+        }
+
+        /* Clear floats */
+        .menu-item::after {
+            content: "";
+            display: block;
+            clear: both;
         }
 
         button {
@@ -230,11 +182,14 @@
             z-index: 999;
         }
 
+        /* Make the drawer itself scrollable on small screens */
         .hamburger-menu {
             height: 100dvh;
+            /* full dynamic viewport height */
             overflow-y: auto;
             /* enable scrolling */
             -webkit-overflow-scrolling: touch;
+            /* smooth on iOS */
             overscroll-behavior: contain;
             display: flex;
             flex-direction: column;
@@ -290,7 +245,6 @@
             transform: translateY(12px);
             transition: opacity .2s ease, transform .2s ease;
             z-index: 1099;
-            /* above page content; below your hamburger toggle if needed */
         }
 
         #back-to-top.visible {
@@ -309,12 +263,10 @@
             display: flex;
             gap: 12px;
             z-index: 1001;
-            /* above content */
         }
 
         header nav[aria-label="Primary"] a {
             color: #097d4c;
-            /* match your theme */
             font-weight: bold;
             text-decoration: none;
         }
@@ -343,7 +295,6 @@
             }
         }
 
-        /* Responsive behavior */
         @media (max-width: 600px) {
             .menu-item {
                 flex-direction: column;
@@ -351,8 +302,8 @@
             }
 
             .menu-item p {
-                align-self: flex-end;
-                /* price below description */
+                margin-top: 0.5rem;
+                align-self: flex-start;
             }
 
             header nav[aria-label="Primary"] {
@@ -371,6 +322,7 @@
             }
         }
     </style>
+
 </head>
 
 <body>
@@ -398,912 +350,453 @@
 
     <main>
         <section id="menu">
-            <section id="dishes">
 
-                <section id="salads">
+            <section id="hot-drinks">
+                <div class="type">
+                    <h3 data-i18n="hot-drinks">Топли напитки</h3>
+                </div>
 
+                <div class="menu-item">
+                    <h4 data-i18n="coffee">Кафе 60 г</h4>
+                    <p class="price" data-price="1.30">1.30 €</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="tea">Чай 60 г</h4>
+                    <p class="price" data-price="1.30">1.30 €</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="cream">Сметана</h4>
+                    <p class="price" data-price="0.20">0.20 €</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="honey">Мед</h4>
+                    <p class="price" data-price="0.20">0.20 €</p>
+                </div>
+            </section>
+
+            <section id="beverages">
+                <div class="type">
+                    <h3 data-i18n="non-alcoholic">Безалкохолни</h3>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="coca-cola">Кока кола/Кока кола Zero 250 мл</h4>
+                    <p class="price" data-price="1.60">1.60 €</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="fanta">Фанта портокал/лимон 250 мл</h4>
+                    <p class="price" data-price="1.60">1.60 €</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="sprite">Спрайт 250 мл</h4>
+                    <p class="price" data-price="1.60">1.60 €</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="schweppes">Швепс 250 мл</h4>
+                    <div class="menu-item-description" data-i18n="schweppes-flavors">Tоник/битер лимон/мандарина</div>
+                    <p class="price" data-price="1.60">1.60 €</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="soda">Сода 250 мл</h4>
+                    <p class="price" data-price="1.20">1.20 €</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="mineral-water">Минерална вода 500 мл</h4>
+                    <p class="price" data-price="1.20">1.20 €</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="cappy">Капи 250 мл</h4>
+                    <div class="menu-item-description" data-i18n="cappy-flavors">Портокал/червен
+                        портокал/ябълка/кайсия/праскова/вишна</div>
+                    <p class="price" data-price="2.00">2.00 €</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="fuzetea">Студен чай - Fuze tea 250 мл</h4>
+                    <div class="menu-item-description" data-i18n="fuzetea-flavors">Лимон/праскова</div>
+                    <p class="price" data-price="2.00">2.00 €</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="red-bull">Ред Бул</h4>
+                    <p class="price" data-price="2.90">2.90 €</p>
+                </div>
+            </section>
+
+            <section id="alcoholic-drinks">
+                <section id="draft-beer">
                     <div class="type">
-                        <h3 data-i18n="salads">САЛАТИ</h3>
+                        <h3 data-i18n="draft-beer">НАЛИВНА БИРА</h3>
                     </div>
 
                     <div class="menu-item">
-                        <h4 data-i18n="greek-salad">Гръцка 350 г</h4>
-                        <div class="menu-item-description" data-i18n="greek-desc">Краве сирене, зехтин, риган, домати,
-                            краставици</div>
-                        <p class="price">4.80 €</p>
+                        <h4 data-i18n="stella-330">Stella Artois 330 мл</h4>
+                        <p class="price" data-price="1.80">1.80 €</p>
                     </div>
 
                     <div class="menu-item">
-                        <h4 data-i18n="caprese">Капрезе 300 г</h4>
-                        <div class="menu-item-description" data-i18n="caprese-desc">Домати с моцарела и босилек</div>
-                        <p class="price">6.40 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="mixed">Мешана 250 г</h4>
-                        <div class="menu-item-description" data-i18n="mixed-desc"></div>
-                        <p class="price">3.80 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="shopska">Шопска 300 г</h4>
-                        <div class="menu-item-description" data-i18n="shopska-desc"></div>
-                        <p class="price">4.30 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="ovcharska">Овчарска (с шунка и гъби) 340 г</h4>
-                        <div class="menu-item-description" data-i18n="ovcharska-desc"></div>
-                        <p class="price">5.00 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="snejanka">Снежанка 180 г</h4>
-                        <div class="menu-item-description" data-i18n="snejanka-desc"></div>
-                        <p class="price">3.80 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="peppers">Печени чушки с копър и чесън 250 г</h4>
-                        <div class="menu-item-description" data-i18n="peppers-desc"></div>
-                        <p class="price">3.70 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="cabbage">Зеле и моркови 200 г</h4>
-                        <div class="menu-item-description" data-i18n="cabbage-desc"></div>
-                        <p class="price">3.00 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="chevermeto">Салата „Чевермето“ 350 г</h4>
-                        <div class="menu-item-description" data-i18n="chevermeto-desc">Снежанка, домат, краставица,
-                            катък,
-                            лютика</div>
-                        <p class="price">6.40 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="caesar">Цезар 350 г</h4>
-                        <div class="menu-item-description" data-i18n="caesar-desc">Айсберг, пилешко филе, домати,
-                            дресинг
-                        </div>
-                        <p class="price">6.00 €</p>
+                        <h4 data-i18n="stella-500-draft">Stella Artois 500 мл</h4>
+                        <p class="price" data-price="2.70">2.70 €</p>
                     </div>
                 </section>
 
-                <section id="cold-appetizers">
+                <section id="bottled-beer">
                     <div class="type">
-                        <h3 data-i18n="cold-appetizers">СТУДЕНИ ПРЕДЯСТИЯ - 50 г</h3>
-                    </div>
-                    <div class="menu-item">
-                        <h4 data-i18n="sirene">Сирене</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">1.10 €</p>
+                        <h3 data-i18n="bottled-beer">БУТИЛИРАНА БИРА</h3>
                     </div>
 
                     <div class="menu-item">
-                        <h4 data-i18n="kashkaval">Кашкавал</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">1.60 €</p>
+                        <h4 data-i18n="kamenitza">Каменица 500 мл</h4>
+                        <p class="price" data-price="2.00">2.00 €</p>
                     </div>
 
                     <div class="menu-item">
-                        <h4 data-i18n="shpek">Шпек салам</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">1.60 €</p>
+                        <h4 data-i18n="burgasko">Бургаско 500 мл</h4>
+                        <p class="price" data-price="2.00">2.00 €</p>
                     </div>
 
                     <div class="menu-item">
-                        <h4 data-i18n="lukanka">Луканка</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">2.10 €</p>
+                        <h4 data-i18n="staropramen">Staropramen 500 мл</h4>
+                        <p class="price" data-price="2.00">2.00 €</p>
                     </div>
 
                     <div class="menu-item">
-                        <h4 data-i18n="pastarma">Пастърма</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">2.50 €</p>
+                        <h4 data-i18n="staropramen-dark">Staropramen dark (сезонно) 500 мл</h4>
+                        <p class="price" data-price="2.00">2.00 €</p>
                     </div>
 
                     <div class="menu-item">
-                        <h4 data-i18n="fileElena">Филе Елена</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">2.30 €</p>
+                        <h4 data-i18n="staropramen-0">Staropramen 0% (безалкохолна) 500 мл</h4>
+                        <p class="price" data-price="2.00">2.00 €</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4 data-i18n="stella-500-bottle">Stella Artois 500 мл</h4>
+                        <p class="price" data-price="2.50">2.50 €</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4 data-i18n="corona">Corona 355 мл</h4>
+                        <p class="price" data-price="2.90">2.90 €</p>
                     </div>
                 </section>
 
-                <section id="spreads">
+                <section id="rakia">
                     <div class="type">
-                        <h3 data-i18n="spreads">РАЗЯДКИ</h3>
-                    </div>
-                    <div class="menu-item">
-                        <h4 data-i18n="vancho">Разядката на Ванчо 300 г</h4>
-                        <div class="menu-item-description" data-i18n="vancho-desc">тиквички, домат, сирене</div>
-                        <p class="price">5.40 €</p>
+                        <h3 data-i18n="rakia">Ракии</h3>
                     </div>
 
                     <div class="menu-item">
-                        <h4 data-i18n="katak">Родопски катък 200 г</h4>
-                        <div class="menu-item-description" data-i18n="katak-desc">майонеза, сирене, кисели краставички,
-                            печена
-                            чушка</div>
-                        <p class="price">4.10 €</p>
+                        <h4 data-i18n="karnobatska-muskatova">Карнобатска мускатова 50 мл</h4>
+                        <p class="price" data-price="1.70">1.70 €</p>
                     </div>
 
                     <div class="menu-item">
-                        <h4 data-i18n="lyutika">Лютика със сирене и яйце 250 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">4.10 €</p>
+                        <h4 data-i18n="pomoriyska-muskatova">Поморийска мускатова 50 мл</h4>
+                        <p class="price" data-price="1.70">1.70 €</p>
                     </div>
 
                     <div class="menu-item">
-                        <h4 data-i18n="tikvichki">Тиквички с кисело мляко 300 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">3.60 €</p>
+                        <h4 data-i18n="slivenska-perla">Сливенска перла 50 мл</h4>
+                        <p class="price" data-price="2.10">2.10 €</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4 data-i18n="slivova">Сливова 50 мл</h4>
+                        <p class="price" data-price="1.60">1.60 €</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4 data-i18n="burgaska-muskatova">Бургаска мускатова 50 мл</h4>
+                        <p class="price" data-price="1.70">1.70 €</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4 data-i18n="burgas-63">Бургас 63 50 мл</h4>
+                        <p class="price" data-price="2.20">2.20 €</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4 data-i18n="burgas-63-barrel">Бургас 63 барел 50 мл</h4>
+                        <p class="price" data-price="2.50">2.50 €</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4 data-i18n="vrachanska-temenuga">Врачанска теменуга 50 мл</h4>
+                        <p class="price" data-price="2.20">2.20 €</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4 data-i18n="apricot-rakia">Кайсиева 50 мл</h4>
+                        <p class="price" data-price="1.60">1.60 €</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4 data-i18n="straldzhanska-muskatova">Стралджанска мускатова 50 мл</h4>
+                        <p class="price" data-price="2.00">2.00 €</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4 data-i18n="grape-rakia">Обикновена гроздова 50 мл</h4>
+                        <p class="price" data-price="1.40">1.40 €</p>
                     </div>
                 </section>
 
-                <section id="hot-appetizers">
+                <section id="vodka">
                     <div class="type">
-                        <h3 data-i18n="hot-appetizers">ТОПЛИ ПРЕДЯСТИЯ</h3>
+                        <h3 data-i18n="vodka">Водка</h3>
                     </div>
 
                     <div class="menu-item">
-                        <h4 data-i18n="shrimp">Кралски скариди 170 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">10.00 €</p>
+                        <h4 data-i18n="savoy-silver">Savoy Силвър 50 мл</h4>
+                        <p class="price" data-price="1.30">1.30 €</p>
                     </div>
 
                     <div class="menu-item">
-                        <h4 data-i18n="friedCheeseBites">Сирене пане хапки 220 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">4.50 €</p>
+                        <h4 data-i18n="finlandia">Финландия 50 мл</h4>
+                        <p class="price" data-price="2.10">2.10 €</p>
                     </div>
 
                     <div class="menu-item">
-                        <h4 data-i18n="bakedCheese">Сирене под капак 150 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">4.00 €</p>
+                        <h4 data-i18n="absolut">Абсолют 50 мл</h4>
+                        <p class="price" data-price="2.10">2.10 €</p>
                     </div>
 
                     <div class="menu-item">
-                        <h4 data-i18n="kashkavalPane">Кашкавал пане 220 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">4.00 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="kashkavalBites">Кашкавал пане хапки 120 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">4.80 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="meltedCheese">Топено сирене пане със сладко от боровинки 200 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">4.80 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="chickenHearts">Пилешки сърца в масло 220 г </h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">5.00 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="mushrooms">Гъби в масло 150 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">3.60 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="pepperBurek">Чушка бюрек 1 бр.</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">3.60 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="tongue">Език пане/в масло 170 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">8.50 €</p>
+                        <h4 data-i18n="russian-standard">Руски стандарт 50 мл</h4>
+                        <p class="price" data-price="2.40">2.40 €</p>
                     </div>
                 </section>
 
-                <section id="soups">
+                <section id="anise-drinks">
                     <div class="type">
-                        <h3 data-i18n="soups">СУПИ</h3>
+                        <h3 data-i18n="anise-drinks">Анасонови напитки</h3>
+                    </div>
+                    <div class="menu-item">
+                        <h4 data-i18n="ouzo-plomari">Узо Пломари 50 мл</h4>
+                        <p class="price" data-price="2.20">2.20 €</p>
                     </div>
 
                     <div class="menu-item">
-                        <h4 data-i18n="tripe">Шкембе 300 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">2.50 €</p>
+                        <h4 data-i18n="pastis-pernod">Пастис Перно 50 мл</h4>
+                        <p class="price" data-price="2.50">2.50 €</p>
+                    </div>
+                </section>
+
+                <section id="whiskey">
+                    <div class="type">
+                        <h3 data-i18n="whiskey">Уиски</h3>
+                    </div>
+                    <div class="menu-item">
+                        <h4 data-i18n="savoy-whiskey">Савой 50 мл</h4>
+                        <p class="price" data-price="1.80">1.80 €</p>
                     </div>
 
                     <div class="menu-item">
-                        <h4 data-i18n="tarator">Таратор 300 г</h4>
-                        <div class="menu-item-description"></div>
+                        <h4 data-i18n="bushmills">Бушмилс 50 мл</h4>
+                        <p class="price" data-price="3.10">3.10 €</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4 data-i18n="baileys">Бейлис 50 мл</h4>
+                        <p class="price" data-price="3.10">3.10 €</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4 data-i18n="jameson">Джеймисън 50 мл</h4>
+                        <p class="price" data-price="3.10">3.10 €</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4 data-i18n="j&b">J&B 50 мл</h4>
+                        <p class="price" data-price="3.10">3.10 €</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4 data-i18n="johnnie-walker">Джони Уокър 50 мл</h4>
+                        <p class="price" data-price="2.60">2.60 €</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4 data-i18n="johnnie-walker-12">Джони Уокър 12г. 50 мл</h4>
+                        <p class="price" data-price="4.40">4.40 €</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4 data-i18n="tullamore-dew">Тюламор Дю 50 мл</h4>
+                        <p class="price" data-price="3.10">3.10 €</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4 data-i18n="jim-beam">Джим Бийм 50 мл</h4>
+                        <p class="price" data-price="3.10">3.10 €</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4 data-i18n="jack-daniels">Джак Даниелс 50 мл</h4>
+                        <p class="price" data-price="4.00">4.00 €</p>
+                    </div>
+                </section>
+
+                <section id="vermouth">
+                    <div class="type">
+                        <h3 data-i18n="vermouth">Вермут - 50 мл</h3>
+                    </div>
+                    <div class="menu-item">
+                        <h4 data-i18n="bulgarian-vermouth">Вермут български</h4>
+                        <p class="price" data-price="1.30">1.30 €</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4 data-i18n="martini">Мартини</h4>
+                        <p class="price" data-price="1.60" >1.60</p>
+                        <div class="menu-item-description" data-i18n="bianco-dry">Бианко/сухо</div>
+                    </div>
+                </section>
+
+                <section id="gin">
+                    <div class="type">
+                        <h3 data-i18n="gin">Джин</h3>
+                    </div>
+                    <div class="menu-item">
+                        <h4 data-i18n="savoy-gin">Савой 50 мл</h4>
+                        <p class="price" data-price="1.50">1.50 €</p>
+                    </div>
+
+                    <div class="menu-item">
+                        <h4 data-i18n="beefeater">Бийфитър 50 мл</h4>
+                        <p class="price" data-price="2.40">2.40 €</p>
+                    </div>
+                </section>
+
+                <section id="mint">
+                    <div class="type">
+                        <h3 data-i18n="mint">Мента - 50 мл</h3>
+                    </div>
+                    <div class="menu-item">
+                        <h4 data-i18n="karnobat-mint">Карнобат</h4>
+                        <p class="price" data-price="1.40">1.40 €</p>
+                    </div>
+                    <div class="menu-item">
+                        <h4 data-i18n="marie-brizard">Мари Бризар</h4>
                         <p class="price">2.00 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="chicken-soup">Пилешка супа 300 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">2.00 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="meatballs-soup">Супа топчета 300 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">2.00 €</p>
+                        <p class="price" data-price="2.00">2.00 €</p>
                     </div>
                 </section>
 
-                <section id="sachs">
+                <section id="rum">
                     <div class="type">
-                        <h3 data-i18n="sachs">САЧОВЕ</h3>
+                        <h3 data-i18n="rum">Ром</h3>
                     </div>
-
                     <div class="menu-item">
-                        <h4 data-i18n="sach">Сач 650 г</h4>
-                        <div class="menu-item-description" data-i18n="type-of-sach">Пилешки/свински/комбиниран</div>
-                        <p class="price">20.00 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="vegetable-sach">Зеленчуков сач 450 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">10.00 €</p>
+                        <h4 data-i18n="savoy-rum">Савой 50 мл</h4>
+                        <p class="price" data-price="1.50">1.50 €</p>
                     </div>
                 </section>
-
-                <section id="national-cuisine">
-                    <div class="type">
-                        <h3 data-i18n="national-cuisine">НАЦИОНАЛНА КУХНЯ</h3>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="kavarma">Кавърма 400 г</h4>
-                        <div class="menu-item-description" data-i18n="kavarma-types">Свинска/пилешка</div>
-                        <p class="price">6.00 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="kavarma-in-omlettte">Кавърма в омлет 400 г</h4>
-                        <div class="menu-item-description" data-i18n="kavarma-types">Свинска/пилешка</div>
-                        <p class="price">6.90 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="cheese-vratsa">Сирене по врачански 350 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">4.70 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="cheese-trakia">Сирене по тракийски (с шунка) 350 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">5.40 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="sudjuk-po-lov">Суджук по ловджийски 300 г</h4>
-                        <div class="menu-item-description" data-i18n="baked-sudjuk">Суджук на скара с лук, гъби, шунка,
-                            чушки,
-                            домати</div>
-                        <p class="price">10.00 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="lamb-head">Агнешка главичка 350 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">8.00 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="kachamak">Качамак със сирене 300 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">4.00 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="mish-mash">Миш-маш 300 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">3.80 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="panagiurishte-eggs">Яйца по панагюрски 300 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">3.20 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="bean-stew">Боб яхния 300 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">2.70 €</p>
-                    </div>
-                </section>
-
-                <section id="chicken-dishes">
-                    <div class="type">
-                        <h3 data-i18n="chicken-dishes">ЯСТИЯ ОТ ПИЛЕШКО МЕСО</h3>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="chicken-fillet-spindle">Пилешко филе вретено 400 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">10.00 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="chicken-fillet">Пилешко филе 130 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">6.00 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="chicken-fillet-with-mushroons">Пилешко филе с гъби 300 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">7.00 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="chicken-steak">Пилешка пържола бут 130 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">5.50 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="chicken-wings">Пилешки крилца 300 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">5.50 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="gipsy-chicken-steak">Пилешка пържола по цигански 360 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">7.50 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="chicken-bites">Пилешки хапки със сусам/корнфлейкс 200 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">5.00 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="chicken-schnitzel">Пилешки шницел по виенски 150 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">8.40 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="chicken-shashlik">Пилешки шашлик 280 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">8.00 €</p>
-                    </div>
-                </section>
-
-                <section id="pork-dishes">
-                    <div class="type">
-                        <h3 data-i18n="pork-dishes">ЯСТИЯ ОТ СВИНСКО МЕСО</h3>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="pork-fillet-spindle">Свинско филе вретено 400 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">10.00 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="pork-steak-mushrooms">Пържола с гъби 300 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">7.00 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="pork-steak-pan">Пържола на тиган 120 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">5.80 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="viennese-schnitzel">Шницел по виенски 150 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">8.40 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="minced-schnitzel">Шницел пане кайма 150 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">4.70 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="pork-steak">Пържола 130 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">5.80 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="pork-skewer">Шишче 90 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">2.30 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="meatball">Кюфте 80 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">1.55 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="kebapche">Кебапче 80 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">1.55 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="pork-ribs">Ребра 200 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">7.00 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="pork-sudjuk">Свински суджук 200 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">5.20 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="tatar-meatball">Татарско кюфте 160 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">4.40 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="pork-shashlik">Свински шашлик 280 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">8.00 €</p>
-                    </div>
-                </section>
-
-                <section id="cheverme-pork-dish">
-                    <div class="type">
-                        <h3 data-i18n="cheverme-pork-dish">СИНИЯ ЧЕВЕРМЕ СВИНСКО</h3>
-                    </div>
-
-                    <table>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <th data-i18n="large">Голяма</th>
-                            <th data-i18n="small">Малка</th>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td data-i18n="for-6-people">/ЗА 6 ЧОВЕКА/</td>
-                            <td data-i18n="for-3-people">/ЗА 3 ЧОВЕКА/</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="pork-shashlik">Свински шашлик</td>
-                            <td data-i18n="2x270g">2 бр. х 270 г</td>
-                            <td data-i18n="2x135g">2 бр. х 135 г</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="pork-steak">Свинска пържола</td>
-                            <td data-i18n="120g">120 г</td>
-                            <td data-i18n="60g">60 г</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="pork-liver">Свински дроб</td>
-                            <td data-i18n="120g">120 г</td>
-                            <td data-i18n="60g">60 г</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="pork-ribs">Свински ребра</td>
-                            <td data-i18n="350g">350 г</td>
-                            <td data-i18n="175g">175 г</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="pork-sausage">Свинска наденица</td>
-                            <td data-i18n="230g">230 г</td>
-                            <td data-i18n="115g">115 г</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="pork-loin">Свинско каре</td>
-                            <td data-i18n="120g">120 г</td>
-                            <td data-i18n="60g">60 г</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="pork-skewers">Свинско шишче</td>
-                            <td data-i18n="2x90g">2 бр. х 90 г</td>
-                            <td data-i18n="2x45g">2 бр. х 45 г</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="fried-potatoes">Пържени картофи</td>
-                            <td data-i18n="120g">120 г</td>
-                            <td data-i18n="60g">60 г</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="boiled-potatoes">Варени картофи</td>
-                            <td data-i18n="200g">200 г</td>
-                            <td data-i18n="100g">100 г</td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <th class="price">55.00 €</th>
-                            <th class="price">27.00 €</th>
-                        </tr>
-                    </table>
-                </section>
-
-                <section id="cheverme-chicken-dish">
-                    <div class="type">
-                        <h3 data-i18n="cheverme-chicken-dish">СИНИЯ ЧЕВЕРМЕ ПИЛЕШКО</h3>
-                    </div>
-
-                    <table>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <th data-i18n="large">Голяма</th>
-                            <th data-i18n="small">Малка</th>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td data-i18n="for-6-people">/ЗА 6 ЧОВЕКА/</td>
-                            <td data-i18n="for-3-people">/ЗА 3 ЧОВЕКА/</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="chicken-shashlik">Пилешки шашлик</td>
-                            <td data-i18n="2x270g">2 бр. х 270 г</td>
-                            <td data-i18n="2x135g">2 бр. х 135 г</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="chicken-steak">Пилешка пържола</td>
-                            <td data-i18n="120g">120 г</td>
-                            <td data-i18n="60g">60 г</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="chicken-fillet">Пилешко филе</td>
-                            <td data-i18n="130g">130 г</td>
-                            <td data-i18n="65g">65 г</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="chicken-liver">Пилешки дроб</td>
-                            <td data-i18n="150g">150 г</td>
-                            <td data-i18n="75g">75 г</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="chicken-wings">Пилешки крилца</td>
-                            <td data-i18n="300g">300 г</td>
-                            <td data-i18n="150g">150 г</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="chicken-skewers">Пилешко шишче</td>
-                            <td data-i18n="2x90g">2 бр. х 90 г</td>
-                            <td data-i18n="2x45g">2 бр. х 45 г</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="chicken-sausage">Пилешка наденица</td>
-                            <td data-i18n="230g">230 г</td>
-                            <td data-i18n="115g">115 г</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="fried-potatoes">Пържени картофи</td>
-                            <td data-i18n="120g">120 г</td>
-                            <td data-i18n="60g">60 г</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="boiled-potatoes">Варени картофи</td>
-                            <td data-i18n="200g">200 г</td>
-                            <td data-i18n="100g">100 г</td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <th class="price">55.00 €</th>
-                            <th class="price">27.00 €</th>
-                        </tr>
-                    </table>
-                </section>
-
-                <section id="cheverme-mixed-dish">
-                    <div class="type">
-                        <h3 data-i18n="cheverme-mixed-dish">СИНИЯ ЧЕВЕРМЕ КОМБИНИРАНО</h3>
-                    </div>
-
-                    <table>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <th data-i18n="large">Голяма</th>
-                            <th data-i18n="small">Малка</th>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td data-i18n="for-6-people">/ЗА 6 ЧОВЕКА/</td>
-                            <td data-i18n="for-3-people">/ЗА 3 ЧОВЕКА/</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="chicken-shashlik">Пилешки шашлик</td>
-                            <td data-i18n="2x270g">2 бр. х 270 г</td>
-                            <td data-i18n="2x135g">2 бр. х 135 г</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="pork-shashlik">Свински шашлик</td>
-                            <td data-i18n="2x270g">2 бр. х 270 г</td>
-                            <td data-i18n="2x135g">2 бр. х 135 г</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="chicken-steak">Пилешка пържола</td>
-                            <td data-i18n="130g">130 г</td>
-                            <td data-i18n="65g">65 г</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="pork-steak">Свинска пържола</td>
-                            <td data-i18n="120g">120 г</td>
-                            <td data-i18n="60g">60 г</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="pork-sausage">Свинска наденица</td>
-                            <td data-i18n="120g">120 г</td>
-                            <td data-i18n="60g">60 г</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="chicken-sausage">Пилешка наденица</td>
-                            <td data-i18n="230g">230 г</td>
-                            <td data-i18n="115g">115 г</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="pork-ribs">Свински ребра</td>
-                            <td data-i18n="350g">350 г</td>
-                            <td data-i18n="175g">175 г</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="chicken-wings">Пилешки крилца</td>
-                            <td data-i18n="300g">300 г</td>
-                            <td data-i18n="150g">150 г</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="fried-potatoes">Пържени картофи</td>
-                            <td data-i18n="120g">120 г</td>
-                            <td data-i18n="60g">60 г</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="boiled-potatoes">Варени картофи</td>
-                            <td data-i18n="200g">200 г</td>
-                            <td data-i18n="100g">100 г</td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <th class="price">55.00 €</th>
-                            <th class="price">27.00 €</th>
-                        </tr>
-                    </table>
-                </section>
-
-                <section id="fish">
-                    <div class="type">
-                        <h3 data-i18n="fish-dishes">ЯСТИЯ ОТ РИБА</h3>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="grilled-mackerel">Скумрия на скара 100 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">2.20 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="carp">Шаран 200 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">6.60 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="white-fish-fillet-breaded">Филе бяла риба пане 250 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">5.80 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="trout">Пъстърва 100 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">3.30 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="river-fish">Речна риба 300 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price"></p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="sea-bream">Ципура 100 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">4.40 €</p>
-                    </div>
-                </section>
-
-                <section id="side-dishes">
-                    <div class="type">
-                        <h3 data-i18n="side-dishes">ГАРНИТУРИ</h3>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="blanched-fries">Бланширани пържени картофи 150 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">2.40 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="blanched-fries-with-cheese">Бланширани пържени картофи със сирене 200г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">3.00 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="fresh-salad">Прясна 180 г</h4>
-                        <div class="menu-item-description" data-i18n="fresh-salad-desc">Домати, краставици, зеле</div>
-                        <p class="price">2.20 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="mixed-salad">Комбинирана 180 г</h4>
-                        <div class="menu-item-description" data-i18n="mixed-salad-desc">Картофи, домати, краставици
-                        </div>
-                        <p class="price">2.20 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="balkan-tourist">Балкан турист 180 г</h4>
-                        <div class="menu-item-description" data-i18n="balkan-tourist-desc">Зеле, лютеница, боб, печена
-                            чушка
-                        </div>
-                        <p class="price">3.00 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="mashed-potatoes">Картофено пюре 120 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">2.20 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="fresh-fries">Пресни пържени картофи 150 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">2.55 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="fresh-fries-with-cheese">Пресни пържени картофи със сирене 200 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">3.40 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="boiled-potatoes-with-onion">Варени картофи 150 г |(с лук) 120 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">2.30 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="sautéed-potatoes">Картофи соте 150 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">2.80 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="grilled-vegetables">Зеленчуци на скара 180 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">4.90 €</p>
-                    </div>
-                </section>
-
-                <section id="sauces">
-                    <div class="type">
-                        <h3 data-i18n="sauces">СОСОВЕ - 60 г</h3>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="sauce-list">Зехтин/балсамико/соев сос/горчица/кетчуп/чеснов сос/лютеница</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">1.00 €</p>
-                    </div>
-                </section>
-
-                <section id="bread">
-                    <div class="type">
-                        <h3 data-i18n="bread">ХЛЯБ - 1 бр.</h3>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="slice-of-bread">Филия</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">0.20 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="toasted-slice">Печена филия</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">0.25 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="homemade-bread">Питка</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">1.10 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="flatbread">Пърленка</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">1.80 €</p>
-                    </div>
-                </section>
-
-                <section id="nuts">
-                    <div class="type">
-                        <h3 data-i18n="nuts">ЯДКИ - 50 г</h3>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="cashew">Индийско кашу</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">2.30 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="almond">Бадем</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">2.20 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="pistachio">Шам фъстък</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">2.20 €</p>
-                    </div>
-                </section>
-
-                <section id="desserts">
-                    <div class="type">
-                        <h3 data-i18n="desserts">ДЕСЕРТИ</h3>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="fried-apple">Ябълка пане с мед и канела 180 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">3.10 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="pancake">Палачинка 1 бр.</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">2.20 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="melba">Мелба 200 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">3.20 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="ice-cream">Сладолед 150 г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price">2.10 €</p>
-                    </div>
-
-                    <div class="menu-item">
-                        <h4 data-i18n="dessert-of-the-day">Десерт на деня …….. г</h4>
-                        <div class="menu-item-description"></div>
-                        <p class="price"></p>
-                    </div>
-                </section>
-
 
             </section>
+
+
+            <section id="wines">
+                <div class="type">
+                    <h3 data-i18n="white-wines">БЕЛИ ВИНА</h3>
+                </div>
+                
+                <div class="menu-item">
+                    <h4 data-i18n="chateau-karnobat-white">Шато Карнобат 750 мл</h4>
+                    <p class="price" data-price="9.50">9.50 €</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="cycle-white-750">Сайкъл 750 мл</h4>
+                    <p class="price" data-price="13.00">13.00 €</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="cycle-white-375">Сайкъл 375 мл</h4>
+                    <p class="price" data-price="6.50">6.50 €</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="starosel-white">Старосел 750 мл</h4>
+                    <p class="price" data-price="17.00">17.00 €</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="targovishte-white">Търговище 750 мл</h4>
+                    <p class="price" data-price="12.00">12.00 €</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="glass-of-wine-white">Чаша вино 200 мл</h4>
+                    <p class="price" data-price="2.00">2.00 €</p>
+                </div>
+
+                <div class="type">
+                    <h3 data-i18n="red-wines">ЧЕРВЕНИ ВИНА</h3>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="chateau-karnobat-red">Шато Карнобат 750 мл</h4>
+                    <p class="price" data-price="9.50">9.50 €</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="cycle-red-750">Сайкъл 750 мл</h4>
+                    <p class="price" data-price="13.00">13.00 €</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="cycle-red-375">Сайкъл 375 мл</h4>
+                    <p class="price" data-price="6.50">6.50 €</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="starosel-red">Старосел 750 мл</h4>
+                    <p class="price" data-price="17.00">17.00 €</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="targovishte-red">Търговище 750 мл</h4>
+                    <p class="price" data-price="12.00">12.00 €</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="glass-of-wine-red">Чаша вино 200 мл</h4>
+                    <p class="price" data-price="2.00">2.00 €</p>
+                </div>
+
+                <div class="type">
+                    <h3 data-i18n="rose">РОЗЕ</h3>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="cycle-rose">Сайкъл 750 мл</h4>
+                    <p class="price" data-price="13.00">13.00 €</p>
+                </div>
+                
+                <div class="menu-item">
+                    <h4 data-i18n="katarzyna-rose">Катаржина Розе 750 мл</h4>
+                    <p class="price" data-price="16.00">16.00 €</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4 data-i18n="starosel-rose">Старосел Розе 750 мл</h4>
+                    <p class="price" data-price="17.00">17.00 €</p>
+                </div>
+            </section>
+
         </section>
+
     </main>
 
     <script src="translations.js"></script>
@@ -1321,7 +814,7 @@
             if (!menu || !list || !toggle || !closeBtn || !overlay) return;
 
             // Collect sections and build menu
-            const sections = Array.from(document.querySelectorAll('#dishes .type'));
+            const sections = Array.from(document.querySelectorAll('#menu .type'));
             list.innerHTML = '';
 
             list.insertAdjacentHTML('afterbegin', `
@@ -1348,10 +841,6 @@
                     } else {
                         a.textContent = title.textContent.trim();
                     }
-                } else {
-                    a.addEventListener('click', () => {
-                        closeMenu();
-                    })
                 }
                 a.addEventListener('click', () => {
                     closeMenu();
@@ -1399,7 +888,6 @@
             }
         })();
     </script>
-
 </body>
 
 </html>
